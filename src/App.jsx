@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react'
 import { Github, ExternalLink, ChevronDown, ChevronUp, RefreshCw, Calendar, Tag, Bug, Sparkles, Zap, AlertTriangle, BookOpen } from 'lucide-react'
 import { sampleReleases } from './data/sample-data'
 import { formatDate, formatDateTime } from './data/releases'
+import { Analytics } from "@vercel/analytics/next"
 
 // 获取真实数据或使用示例数据
 import realData from './data/releases.json'
@@ -64,7 +65,7 @@ function App() {
                 <p className="text-xs text-gray-400">追踪最新版本发布</p>
               </div>
             </div>
-            
+
             <a
               href="https://github.com/openclaw/openclaw/releases"
               target="_blank"
@@ -320,6 +321,7 @@ function App() {
           </p>
         </div>
       </footer>
+      <Analytics />
     </div>
   )
 }
