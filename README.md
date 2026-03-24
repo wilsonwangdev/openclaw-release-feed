@@ -35,7 +35,6 @@
 ### 安装依赖
 
 ```bash
-cd web
 npm install
 ```
 
@@ -61,7 +60,7 @@ npm run preview
 ### 项目结构
 
 ```
-web/
+openclaw-release-feed/
 ├── src/
 │   ├── App.jsx              # 主应用组件
 │   ├── main.jsx            # React 入口
@@ -123,7 +122,6 @@ web/
 ### 本地测试数据同步
 
 ```bash
-cd web
 node scripts/generate-data.js
 ```
 
@@ -162,7 +160,7 @@ node scripts/generate-data.js
 
 ### 修改翻译规则
 
-编辑 `web/src/data/releases.js` 中的 `translations` 对象：
+编辑 `src/data/releases.js` 中的 `translations` 对象：
 
 ```javascript
 const translations = {
@@ -185,7 +183,7 @@ const categoryRules = [
 
 ### 修改主题颜色
 
-编辑 `web/tailwind.config.js` 中的 `colors.brand`：
+编辑 `tailwind.config.js` 中的 `colors.brand`：
 
 ```javascript
 colors: {

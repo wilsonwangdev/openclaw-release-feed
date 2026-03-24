@@ -110,7 +110,6 @@ class ChangeItem extends React.Component {
 
 ```bash
 # 本地测试数据同步
-cd web
 node scripts/generate-data.js
 
 # 构建测试

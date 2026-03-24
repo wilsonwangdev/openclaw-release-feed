@@ -19,17 +19,17 @@
 openclaw-release-feed/
 ├── .github/workflows/
 │   └── update-releases.yml    # 自动同步 Releases
-├── web/                        # 前端应用
-│   ├── src/
-│   │   ├── App.jsx            # 主组件（版本选择、变更列表、分类筛选）
-│   │   ├── main.jsx           # React 入口
-│   │   ├── index.css          # Tailwind 样式
-│   │   └── data/
-│   │       ├── releases.js    # ⭐ 核心：翻译 + 分类逻辑
-│   │       ├── releases.json   # 同步的 Release 数据
-│   │       └── sample-data.js  # 示例数据
-│   └── scripts/
-│       └── generate-data.js   # CI 数据抓取脚本
+├── src/
+│   ├── App.jsx                # 主组件（版本选择、变更列表、分类筛选）
+│   ├── main.jsx               # React 入口
+│   ├── index.css              # Tailwind 样式
+│   └── data/
+│       ├── releases.js        # ⭐ 核心：翻译 + 分类逻辑
+│       ├── releases.json      # 同步的 Release 数据
+│       └── sample-data.js     # 示例数据
+├── scripts/
+│   └── generate-data.js       # CI 数据抓取脚本
+├── package.json
 └── vercel.json                # Vercel 部署配置
 ```
 
@@ -91,7 +91,7 @@ const [activeFilter, setActiveFilter] = useState('all')  // 分类筛选
 
 ```bash
 # 开发
-cd web && npm install    # 安装依赖
+npm install               # 安装依赖
 npm run dev               # 启动开发服务器 (localhost:5173)
 npm run build             # 构建生产版本
 npm run preview           # 预览生产构建
@@ -206,8 +206,8 @@ function App() {
 
 ```bash
 # 清理缓存重试
-rm -rf web/node_modules web/dist
-cd web && npm install && npm run build
+rm -rf node_modules dist
+npm install && npm run build
 ```
 
 ### API 限流
@@ -217,14 +217,13 @@ cd web && npm install && npm run build
 export GITHUB_TOKEN=ghp_xxxx
 
 # 或在 .env 文件中
-echo "GITHUB_TOKEN=ghp_xxxx" > web/.env
+echo "GITHUB_TOKEN=ghp_xxxx" > .env
 ```
 
 ### 样式不生效
 
 ```bash
 # 确保 Tailwind 构建正常
-cd web
 npx tailwindcss -i ./src/index.css -o ./src/index.css --watch
 ```
 

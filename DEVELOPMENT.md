@@ -35,7 +35,6 @@ git clone https://github.com/wilsonwangdev/openclaw-release-feed.git
 cd openclaw-release-feed
 
 # 安装依赖
-cd web
 npm install
 
 # 启动开发服务器
@@ -46,7 +45,7 @@ npm run dev
 
 ### 1. 修改翻译规则
 
-翻译规则位于 `web/src/data/releases.js`：
+翻译规则位于 `src/data/releases.js`：
 
 ```javascript
 // 添加新的翻译映射
@@ -81,7 +80,7 @@ const translations = {
 ### 3. 调试数据解析
 
 ```javascript
-// 在 web/scripts/generate-data.js 中添加调试日志
+// 在 scripts/generate-data.js 中添加调试日志
 console.log('原始数据:', release.body)
 console.log('解析结果:', changes)
 ```
@@ -110,7 +109,7 @@ npm install -D vitest
 创建测试文件：
 
 ```javascript
-// web/src/__tests__/releases.test.js
+// src/__tests__/releases.test.js
 import { describe, it, expect } from 'vitest'
 import { translateToChinese, categorizeChange } from '../data/releases'
 
@@ -178,7 +177,6 @@ on:
 
 ```bash
 # 本地模拟 CI 环境
-cd web
 node scripts/generate-data.js
 
 # 检查输出
@@ -190,8 +188,8 @@ cat src/data/releases.json | jq '.'
 ### 添加新组件
 
 ```bash
-# 在 web/src/components/ 下创建
-touch web/src/components/NewComponent.jsx
+# 在 src/components/ 下创建
+touch src/components/NewComponent.jsx
 ```
 
 组件模板：
