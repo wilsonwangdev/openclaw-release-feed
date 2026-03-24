@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react'
 import { Github, ExternalLink, ChevronDown, ChevronUp, RefreshCw, Calendar, Tag, Bug, Sparkles, Zap, AlertTriangle, BookOpen } from 'lucide-react'
 import { sampleReleases } from './data/sample-data'
 import { formatDate, formatDateTime } from './data/releases'
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 // 获取真实数据或使用示例数据
 import realData from './data/releases.json'
