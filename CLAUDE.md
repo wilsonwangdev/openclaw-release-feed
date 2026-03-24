@@ -44,8 +44,8 @@ openclaw-release-feed/
 ```javascript
 // 翻译映射表 - 英文关键词 → 中文
 const translations = {
-  'fix': '修复',
-  'browser': '浏览器',
+  fix: '修复',
+  browser: '浏览器',
   // ...
 }
 
@@ -56,31 +56,34 @@ const categoryRules = [
 ]
 
 // 核心函数
-translateToChinese(text)    // 翻译英文文本
-categorizeChange(text)       // 自动分类
-getChangeType(text)          // 判断变更类型（fix/feat/improve）
-parseReleaseData(rawData)    // 解析 GitHub Release 数据
-formatDate(dateString)       // 格式化相对时间
+translateToChinese(text) // 翻译英文文本
+categorizeChange(text) // 自动分类
+getChangeType(text) // 判断变更类型（fix/feat/improve）
+parseReleaseData(rawData) // 解析 GitHub Release 数据
+formatDate(dateString) // 格式化相对时间
 ```
 
 ### 2. App.jsx - 前端组件
 
 主要功能：
+
 - 版本选择器（切换不同 Release）
 - 分类筛选（按模块筛选变更）
 - 变更列表展示
 - 按模块折叠面板
 
 状态管理（React useState）：
+
 ```javascript
-const [selectedVersion, setSelectedVersion] = useState(0)  // 当前版本索引
-const [expandedCategories, setExpandedCategories] = useState({})  // 折叠状态
-const [activeFilter, setActiveFilter] = useState('all')  // 分类筛选
+const [selectedVersion, setSelectedVersion] = useState(0) // 当前版本索引
+const [expandedCategories, setExpandedCategories] = useState({}) // 折叠状态
+const [activeFilter, setActiveFilter] = useState('all') // 分类筛选
 ```
 
 ### 3. generate-data.js - CI 数据脚本
 
 由 GitHub Actions 调用：
+
 1. 调用 GitHub API 获取 releases
 2. 调用 `parseReleaseData()` 处理数据
 3. 写入 `src/data/releases.json`
@@ -191,9 +194,7 @@ function App() {
 使用 Tailwind 动画类：
 
 ```jsx
-<div className="animate-fade-in animate-bounce">
-  内容
-</div>
+<div className="animate-fade-in animate-bounce">内容</div>
 ```
 
 可用动画：`animate-fade-in`, `animate-pulse`, `animate-spin`, `animate-bounce`
@@ -236,4 +237,4 @@ npx tailwindcss -i ./src/index.css -o ./src/index.css --watch
 
 ---
 
-*本文件由 AI 自动生成，最后更新: 2026-03-24*
+_本文件由 AI 自动生成，最后更新: 2026-03-24_

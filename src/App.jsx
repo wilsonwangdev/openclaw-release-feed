@@ -1,11 +1,23 @@
+import { Analytics } from '@vercel/analytics/react'
+import {
+  Github,
+  ExternalLink,
+  ChevronDown,
+  ChevronUp,
+  Calendar,
+  Tag,
+  Bug,
+  Sparkles,
+  Zap,
+  AlertTriangle,
+  BookOpen,
+} from 'lucide-react'
 import { useState, useMemo } from 'react'
-import { Github, ExternalLink, ChevronDown, ChevronUp, RefreshCw, Calendar, Tag, Bug, Sparkles, Zap, AlertTriangle, BookOpen } from 'lucide-react'
-import { sampleReleases } from './data/sample-data'
-import { formatDate, formatDateTime } from './data/releases'
-import { Analytics } from "@vercel/analytics/react"
 
+import { formatDateTime } from './data/releases'
 // 获取真实数据或使用示例数据
 import realData from './data/releases.json'
+import { sampleReleases } from './data/sample-data'
 const releases = realData?.length > 0 ? realData : sampleReleases
 
 function App() {
@@ -17,11 +29,11 @@ function App() {
 
   const filteredChanges = useMemo(() => {
     if (activeFilter === 'all') return currentRelease.changes
-    return currentRelease.changes.filter(c => c.category === activeFilter)
+    return currentRelease.changes.filter((c) => c.category === activeFilter)
   }, [currentRelease, activeFilter])
 
   const toggleCategory = (cat) => {
-    setExpandedCategories(prev => ({ ...prev, [cat]: !prev[cat] }))
+    setExpandedCategories((prev) => ({ ...prev, [cat]: !prev[cat] }))
   }
 
   const categories = Object.entries(currentRelease.changesByCategory)
@@ -153,13 +165,13 @@ function App() {
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-red-400">
-                {currentRelease.changes.filter(c => c.type.type === 'fix').length}
+                {currentRelease.changes.filter((c) => c.type.type === 'fix').length}
               </div>
               <div className="text-xs text-gray-400 mt-1">Bug 修复</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-green-400">
-                {currentRelease.changes.filter(c => c.type.type === 'feat').length}
+                {currentRelease.changes.filter((c) => c.type.type === 'feat').length}
               </div>
               <div className="text-xs text-gray-400 mt-1">新增功能</div>
             </div>
@@ -208,7 +220,9 @@ function App() {
               style={{ animationDelay: `${index * 50}ms` }}
             >
               <div className="flex items-start gap-3">
-                <span className={`flex-shrink-0 px-2 py-1 rounded text-xs font-medium border ${getTypeColor(change.type.type)}`}>
+                <span
+                  className={`flex-shrink-0 px-2 py-1 rounded text-xs font-medium border ${getTypeColor(change.type.type)}`}
+                >
                   {getTypeIcon(change.type.type)}
                   <span className="ml-1">{change.type.label}</span>
                 </span>
@@ -283,7 +297,9 @@ function App() {
                       className="p-4 pt-3 border-b border-white/5 last:border-b-0 hover:bg-white/5 transition-all"
                     >
                       <div className="flex items-center gap-2 mb-1">
-                        <span className={`flex-shrink-0 px-2 py-0.5 rounded text-xs font-medium border ${getTypeColor(item.type.type)}`}>
+                        <span
+                          className={`flex-shrink-0 px-2 py-0.5 rounded text-xs font-medium border ${getTypeColor(item.type.type)}`}
+                        >
                           {getTypeIcon(item.type.type)}
                         </span>
                         <span className="text-sm text-gray-200">{item.title}</span>
@@ -312,13 +328,18 @@ function App() {
       <footer className="border-t border-white/5 mt-16 py-8">
         <div className="max-w-5xl mx-auto px-4 text-center">
           <p className="text-sm text-gray-500">
-            数据来源：<a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300">openclaw/openclaw</a>
-            <span className="mx-2">•</span>
-            由 GitHub Actions 自动同步
+            数据来源：
+            <a
+              href="https://github.com/openclaw/openclaw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-purple-400 hover:text-purple-300"
+            >
+              openclaw/openclaw
+            </a>
+            <span className="mx-2">•</span>由 GitHub Actions 自动同步
           </p>
-          <p className="text-xs text-gray-600 mt-2">
-            本页面由 OpenClaw AI 辅助构建
-          </p>
+          <p className="text-xs text-gray-600 mt-2">本页面由 OpenClaw AI 辅助构建</p>
         </div>
       </footer>
       <Analytics />

@@ -16,14 +16,14 @@
 
 ## 🛠️ 技术栈
 
-| 类别 | 技术 |
-|------|------|
-| 前端框架 | React 18 + Vite 5 |
-| 样式方案 | Tailwind CSS 3.4 |
-| 图标库 | Lucide React |
-| 持续集成 | GitHub Actions |
+| 类别     | 技术                  |
+| -------- | --------------------- |
+| 前端框架 | React 18 + Vite 5     |
+| 样式方案 | Tailwind CSS 3.4      |
+| 图标库   | Lucide React          |
+| 持续集成 | GitHub Actions        |
 | 部署平台 | Vercel / GitHub Pages |
-| 数据来源 | GitHub REST API |
+| 数据来源 | GitHub REST API       |
 
 ## 🚀 快速开始
 
@@ -146,9 +146,9 @@ node scripts/generate-data.js
 
 **环境变量（可选）：**
 
-| 变量 | 说明 | 必要性 |
-|------|------|--------|
-| `GITHUB_TOKEN` | GitHub Personal Access Token，避免 API 限流 | 推荐 |
+| 变量           | 说明                                        | 必要性 |
+| -------------- | ------------------------------------------- | ------ |
+| `GITHUB_TOKEN` | GitHub Personal Access Token，避免 API 限流 | 推荐   |
 
 ### GitHub Pages 部署
 
@@ -164,8 +164,8 @@ node scripts/generate-data.js
 
 ```javascript
 const translations = {
-  'fix': '修复',
-  'browser': '浏览器',
+  fix: '修复',
+  browser: '浏览器',
   // 添加更多...
 }
 ```
@@ -216,4 +216,4 @@ MIT License
 
 ---
 
-*由 OpenClaw AI 辅助构建 · 2026*
+_由 OpenClaw AI 辅助构建 · 2026_
