@@ -1,0 +1,64 @@
+name: Update OpenClaw Releases
+
+on:
+  schedule:
+    # 每天早上 9 点（北京时间）自动运行
+    - cron: '0 1 * * *'
+  workflow_dispatch:  # 支持手动触发
+  push:
+    branches:
+      - main
+
+jobs:
+  update-releases:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch releases from GitHub API
+        id: fetch
+        run: |
+          # 获取最近 10 个 releases
+          curl -sL "https://api.github.com/repos/openclaw/openclaw/releases?per_page=10" \
+            -H "Accept: application/vnd.github+json" \
+            -H "User-Agent: openclaw-release-feed" \
+            -o releases_raw.json
+
+          echo "fetched_at=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: web
+
+      - name: Generate data file
+        run: node scripts/generate-data.js
+        working-directory: web
+
+      - name: Commit and push if changed
+        run: |
+          if ! git diff --quiet src/data/releases.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add src/data/releases.json
+            git commit -m "chore: auto-update releases data $(date -u +'%Y-%m-%d')"
+            git push
+          else
+            echo "No changes to commit"
+          fi
+
+      # 每次推送新数据时触发 Pages 部署（GitHub Pages 模式）
+      - name: Upload artifact for Pages
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/dist
+        env:
+          GENERATE_STATS: 'false'
