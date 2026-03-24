@@ -50,3 +50,6 @@ coverage/
 
 # Vercel
 .vercel/
+
+# Jujutsu VCS
+.jj/
