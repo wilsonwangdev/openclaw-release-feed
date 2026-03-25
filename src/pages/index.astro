@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import ReleaseFeed from '../components/ReleaseFeed.jsx'
+import { sampleReleases } from '../data/sample-data'
+
+let releases
+try {
+  const mod = await import('../data/releases.json')
+  const data = mod.default || mod
+  releases = Array.isArray(data) && data.length > 0 ? data : sampleReleases
+} catch {
+  releases = sampleReleases
+}
+
+const latestRelease = releases[0]
+---
+
+<Layout>
+  <div class="min-h-screen bg-[#0a0a14]">
+    <Header />
+    <ReleaseFeed client:load releases={releases} />
+
+    {/* noscript 回退：为禁用 JS 的爬虫和用户提供静态内容 */}
+    <noscript>
+      <main class="max-w-5xl mx-auto px-4 py-8">
+        <section class="bg-gradient-to-br from-[#1a1a2e] to-[#16162a] rounded-2xl border border-white/5 p-6 mb-8">
+          <h2 class="text-2xl font-bold text-white mb-2">{latestRelease.name}</h2>
+          <p class="text-sm text-gray-400 mb-6">
+            发布于 {new Date(latestRelease.publishedAt).toLocaleDateString('zh-CN')}
+            &bull; {latestRelease.changes.length} 项变更
+          </p>
+          <div class="space-y-3">
+            {latestRelease.changes.map((change) => (
+              <article class="bg-[#1a1a2e]/50 rounded-xl border border-white/5 p-4">
+                <div class="flex items-start gap-3">
+                  <span class="flex-shrink-0 px-2 py-1 rounded text-xs font-medium border text-blue-400 bg-blue-400/10 border-blue-400/20">
+                    {change.type.label}
+                  </span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-gray-200 leading-relaxed">{change.title}</p>
+                    <span class="text-xs px-2 py-0.5 rounded bg-white/5 text-gray-500 mt-2 inline-block">
+                      {change.categoryLabel}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+        <p class="text-center text-sm text-gray-500">
+          请启用 JavaScript 以使用完整的版本切换和筛选功能
+        </p>
+      </main>
+    </noscript>
+
+    <Footer />
+  </div>
+</Layout>

@@ -4,33 +4,52 @@
 
 ## 项目概述
 
-**OpenClaw 更新快讯** - 一个展示 OpenClaw 最新版本发布的 Web 应用。
+**OpenClaw 更新快讯** - 一个展示 OpenClaw 最新版本发布的静态网站。
 
 - **仓库**: https://github.com/wilsonwangdev/openclaw-release-feed
-- **技术栈**: React 18 + Vite 5 + Tailwind CSS 3.4
+- **技术栈**: Astro 5（SSG）+ React 18（岛屿架构）+ Tailwind CSS 3.4
+- **包管理器**: pnpm
+- **代码检查**: oxlint + oxfmt
 - **数据来源**: GitHub REST API (openclaw/openclaw releases)
-- **部署**: Vercel / GitHub Pages
+- **部署**: Vercel
+- **变更管理**: OpenSpec
 
 ---
 
 ## 项目架构
 
+采用 Astro 岛屿架构：静态 HTML（构建时渲染）+ React 岛屿（客户端交互）。
+
 ```
 openclaw-release-feed/
 ├── .github/workflows/
-│   └── update-releases.yml    # 自动同步 Releases
+│   ├── update-releases.yml       # 自动同步 Releases（每日 + 手动触发）
+│   └── ci.yml                    # PR 代码检查（lint + fmt + build）
 ├── src/
-│   ├── App.jsx                # 主组件（版本选择、变更列表、分类筛选）
-│   ├── main.jsx               # React 入口
-│   ├── index.css              # Tailwind 样式
-│   └── data/
-│       ├── releases.js        # ⭐ 核心：翻译 + 分类逻辑
-│       ├── releases.json      # 同步的 Release 数据
-│       └── sample-data.js     # 示例数据
+│   ├── layouts/
+│   │   └── Layout.astro          # 基础布局（SEO head、字体、全局 CSS）
+│   ├── pages/
+│   │   └── index.astro           # 主页面（静态渲染 + React 岛屿 + noscript 回退）
+│   ├── components/
+│   │   ├── SEOHead.astro         # SEO 标签（OG、Twitter Card、JSON-LD）
+│   │   ├── Header.astro          # 静态头部导航（零 JS）
+│   │   ├── Footer.astro          # 静态底部信息（零 JS）
+│   │   └── ReleaseFeed.jsx       # ⭐ React 岛屿（版本切换、筛选、变更列表）
+│   ├── data/
+│   │   ├── releases.js           # ⭐ 核心：翻译 + 分类逻辑
+│   │   ├── releases.json         # 同步的 Release 数据
+│   │   └── sample-data.js        # 示例兜底数据
+│   └── index.css                 # 全局样式 + Tailwind
 ├── scripts/
-│   └── generate-data.js       # CI 数据抓取脚本
+│   └── generate-data.js          # CI 数据抓取脚本
+├── public/
+│   ├── favicon.svg
+│   └── robots.txt                # 搜索引擎爬取指引
+├── openspec/                     # 变更管理（架构决策记录）
+├── astro.config.mjs              # Astro 配置（React + Tailwind + Sitemap）
+├── tailwind.config.js
 ├── package.json
-└── vercel.json                # Vercel 部署配置
+└── vercel.json
 ```
 
 ---
@@ -51,7 +70,11 @@ const translations = {
 
 // 分类规则 - 关键词匹配 → 分类标签
 const categoryRules = [
-  { keywords: ['browser', 'chrome'], category: 'browser', label: '🌐 浏览器支持' },
+  {
+    keywords: ['browser', 'chrome'],
+    category: 'browser',
+    label: '🌐 浏览器支持',
+  },
   // ...
 ]
 
@@ -63,9 +86,9 @@ parseReleaseData(rawData) // 解析 GitHub Release 数据
 formatDate(dateString) // 格式化相对时间
 ```
 
-### 2. App.jsx - 前端组件
+### 2. ReleaseFeed.jsx - React 岛屿
 
-主要功能：
+作为 Astro 页面中的 `client:load` 岛屿，承载所有交互逻辑：
 
 - 版本选择器（切换不同 Release）
 - 分类筛选（按模块筛选变更）
@@ -80,7 +103,13 @@ const [expandedCategories, setExpandedCategories] = useState({}) // 折叠状态
 const [activeFilter, setActiveFilter] = useState('all') // 分类筛选
 ```
 
-### 3. generate-data.js - CI 数据脚本
+### 3. Astro 静态组件
+
+- **Layout.astro** - 基础 HTML 结构，引入 SEOHead 和全局 CSS
+- **SEOHead.astro** - Open Graph、Twitter Card、JSON-LD 结构化数据
+- **Header.astro** / **Footer.astro** - 纯静态 HTML，零 JS 开销
+
+### 4. generate-data.js - CI 数据脚本
 
 由 GitHub Actions 调用：
 
@@ -94,10 +123,17 @@ const [activeFilter, setActiveFilter] = useState('all') // 分类筛选
 
 ```bash
 # 开发
-npm install               # 安装依赖
-npm run dev               # 启动开发服务器 (localhost:5173)
-npm run build             # 构建生产版本
-npm run preview           # 预览生产构建
+pnpm install              # 安装依赖
+pnpm dev                  # 启动开发服务器 (localhost:4321)
+pnpm build                # 构建生产版本
+pnpm preview              # 预览生产构建
+
+# 代码检查
+pnpm lint                 # oxlint 检查
+pnpm lint:fix             # oxlint 自动修复
+pnpm fmt                  # oxfmt 格式化
+pnpm fmt:check            # oxfmt 检查格式
+pnpm check                # 一键检查 (lint + fmt)
 
 # 测试数据同步
 node scripts/generate-data.js
@@ -109,10 +145,12 @@ node scripts/generate-data.js
 
 ### 代码风格
 
-- **React**: 使用函数组件 + Hooks
+- **Astro 组件**: 用于静态内容，不包含客户端 JS
+- **React 组件**: 仅用于需要交互的岛屿，使用函数组件 + Hooks
 - **CSS**: Tailwind CSS 原子类为主，复杂样式用 `index.css`
 - **命名**: 组件用 PascalCase，函数用 camelCase
-- **注释**: 关键逻辑添加中文注释
+- **语言**: 所有面向阅读的内容使用中文
+- **代码检查**: oxlint（代码规范）+ oxfmt（代码格式化）
 
 ### Git 提交规范
 
@@ -160,44 +198,22 @@ docs/xxx             # 文档分支
 'english_word': '中文翻译',
 ```
 
-### 添加新页面/路由
+### 添加新页面
 
-当前为单页应用，如需多页面：
+Astro 基于文件系统路由，在 `src/pages/` 下创建新的 `.astro` 文件即可：
 
-1. 创建新组件（如 `About.jsx`）
-2. 使用 React Router:
+```astro
+---
+// src/pages/about.astro
+import Layout from '../layouts/Layout.astro'
+---
 
-```bash
-npm install react-router-dom
+<Layout title="关于" description="关于 OpenClaw 更新快讯">
+  <main>
+    <h1>关于</h1>
+  </main>
+</Layout>
 ```
-
-```jsx
-// App.jsx
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import About from './pages/About'
-
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </BrowserRouter>
-  )
-}
-```
-
-### 添加动画效果
-
-使用 Tailwind 动画类：
-
-```jsx
-<div className="animate-fade-in animate-bounce">内容</div>
-```
-
-可用动画：`animate-fade-in`, `animate-pulse`, `animate-spin`, `animate-bounce`
 
 ---
 
@@ -207,8 +223,8 @@ function App() {
 
 ```bash
 # 清理缓存重试
-rm -rf node_modules dist
-npm install && npm run build
+rm -rf node_modules dist .astro
+pnpm install && pnpm build
 ```
 
 ### API 限流
@@ -221,13 +237,6 @@ export GITHUB_TOKEN=ghp_xxxx
 echo "GITHUB_TOKEN=ghp_xxxx" > .env
 ```
 
-### 样式不生效
-
-```bash
-# 确保 Tailwind 构建正常
-npx tailwindcss -i ./src/index.css -o ./src/index.css --watch
-```
-
 ---
 
 ## 联系与反馈
@@ -237,4 +246,4 @@ npx tailwindcss -i ./src/index.css -o ./src/index.css --watch
 
 ---
 
-_本文件由 AI 自动生成，最后更新: 2026-03-24_
+_本文件最后更新: 2026-03-24_

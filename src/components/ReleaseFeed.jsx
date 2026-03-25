@@ -14,13 +14,37 @@ import {
 } from 'lucide-react'
 import { useState, useMemo } from 'react'
 
-import { formatDateTime } from './data/releases'
-// 获取真实数据或使用示例数据
-import realData from './data/releases.json'
-import { sampleReleases } from './data/sample-data'
-const releases = realData?.length > 0 ? realData : sampleReleases
+import { formatDateTime } from '../data/releases'
+import { sampleReleases } from '../data/sample-data'
 
-function App() {
+const getTypeIcon = (type) => {
+  const icons = {
+    fix: <Bug className="w-4 h-4" />,
+    feat: <Sparkles className="w-4 h-4" />,
+    improve: <Zap className="w-4 h-4" />,
+    security: <AlertTriangle className="w-4 h-4" />,
+    breaking: <AlertTriangle className="w-4 h-4" />,
+    other: <Sparkles className="w-4 h-4" />,
+  }
+  return icons[type] || icons.other
+}
+
+const getTypeColor = (type) => {
+  const colors = {
+    fix: 'text-red-400 bg-red-400/10 border-red-400/20',
+    feat: 'text-green-400 bg-green-400/10 border-green-400/20',
+    improve: 'text-yellow-400 bg-yellow-400/10 border-yellow-400/20',
+    security: 'text-orange-400 bg-orange-400/10 border-orange-400/20',
+    breaking: 'text-red-500 bg-red-500/10 border-red-500/20',
+    other: 'text-blue-400 bg-blue-400/10 border-blue-400/20',
+  }
+  return colors[type] || colors.other
+}
+
+export default function ReleaseFeed({ releases: releasesFromProps }) {
+  const releases =
+    releasesFromProps?.length > 0 ? releasesFromProps : sampleReleases
+
   const [selectedVersion, setSelectedVersion] = useState(0)
   const [expandedCategories, setExpandedCategories] = useState({})
   const [activeFilter, setActiveFilter] = useState('all')
@@ -38,63 +62,11 @@ function App() {
 
   const categories = Object.entries(currentRelease.changesByCategory)
 
-  const getTypeIcon = (type) => {
-    const icons = {
-      fix: <Bug className="w-4 h-4" />,
-      feat: <Sparkles className="w-4 h-4" />,
-      improve: <Zap className="w-4 h-4" />,
-      security: <AlertTriangle className="w-4 h-4" />,
-      breaking: <AlertTriangle className="w-4 h-4" />,
-      other: <Sparkles className="w-4 h-4" />,
-    }
-    return icons[type] || icons.other
-  }
-
-  const getTypeColor = (type) => {
-    const colors = {
-      fix: 'text-red-400 bg-red-400/10 border-red-400/20',
-      feat: 'text-green-400 bg-green-400/10 border-green-400/20',
-      improve: 'text-yellow-400 bg-yellow-400/10 border-yellow-400/20',
-      security: 'text-orange-400 bg-orange-400/10 border-orange-400/20',
-      breaking: 'text-red-500 bg-red-500/10 border-red-500/20',
-      other: 'text-blue-400 bg-blue-400/10 border-blue-400/20',
-    }
-    return colors[type] || colors.other
-  }
-
   return (
-    <div className="min-h-screen bg-[#0a0a14]">
-      {/* Header */}
-      <header className="border-b border-white/5 bg-[#0f0f1a]/80 backdrop-blur-xl sticky top-0 z-50">
-        <div className="max-w-5xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-500/20">
-                <Sparkles className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-white">OpenClaw 更新快讯</h1>
-                <p className="text-xs text-gray-400">追踪最新版本发布</p>
-              </div>
-            </div>
-
-            <a
-              href="https://github.com/openclaw/openclaw/releases"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-all text-sm text-gray-300 hover:text-white"
-            >
-              <Github className="w-4 h-4" />
-              GitHub
-              <ExternalLink className="w-3 h-3 opacity-50" />
-            </a>
-          </div>
-        </div>
-      </header>
-
+    <>
       <main className="max-w-5xl mx-auto px-4 py-8">
-        {/* Version Selector */}
-        <div className="mb-8">
+        {/* 版本选择器 */}
+        <nav className="mb-8" aria-label="版本选择">
           <div className="flex flex-wrap gap-2">
             {releases.map((release, index) => (
               <button
@@ -108,6 +80,7 @@ function App() {
                     ? 'bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-lg shadow-purple-500/20'
                     : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/5'
                 }`}
+                aria-pressed={selectedVersion === index}
               >
                 <span className="flex items-center gap-2">
                   <Tag className="w-3 h-3" />
@@ -116,14 +89,19 @@ function App() {
               </button>
             ))}
           </div>
-        </div>
+        </nav>
 
-        {/* Version Info Card */}
-        <div className="bg-gradient-to-br from-[#1a1a2e] to-[#16162a] rounded-2xl border border-white/5 p-6 mb-8 animate-fade-in">
+        {/* 版本信息卡片 */}
+        <section
+          className="bg-gradient-to-br from-[#1a1a2e] to-[#16162a] rounded-2xl border border-white/5 p-6 mb-8 animate-fade-in"
+          aria-label={`版本 ${currentRelease.name} 详情`}
+        >
           <div className="flex items-start justify-between mb-4">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <h2 className="text-2xl font-bold text-white">{currentRelease.name}</h2>
+                <h2 className="text-2xl font-bold text-white">
+                  {currentRelease.name}
+                </h2>
                 {currentRelease.isPrerelease && (
                   <span className="px-2 py-1 rounded text-xs font-medium bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">
                     预发布
@@ -157,21 +135,31 @@ function App() {
             </a>
           </div>
 
-          {/* Stats */}
+          {/* 统计 */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 pt-6 border-t border-white/5">
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">{currentRelease.changes.length}</div>
+              <div className="text-3xl font-bold text-white">
+                {currentRelease.changes.length}
+              </div>
               <div className="text-xs text-gray-400 mt-1">总变更数</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-red-400">
-                {currentRelease.changes.filter((c) => c.type.type === 'fix').length}
+                {
+                  currentRelease.changes.filter(
+                    (c) => c.type.type === 'fix',
+                  ).length
+                }
               </div>
               <div className="text-xs text-gray-400 mt-1">Bug 修复</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-green-400">
-                {currentRelease.changes.filter((c) => c.type.type === 'feat').length}
+                {
+                  currentRelease.changes.filter(
+                    (c) => c.type.type === 'feat',
+                  ).length
+                }
               </div>
               <div className="text-xs text-gray-400 mt-1">新增功能</div>
             </div>
@@ -182,10 +170,10 @@ function App() {
               <div className="text-xs text-gray-400 mt-1">涉及模块</div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        {/* 分类筛选 */}
+        <nav className="flex flex-wrap gap-2 mb-6" aria-label="分类筛选">
           <button
             onClick={() => setActiveFilter('all')}
             className={`px-3 py-1.5 rounded-full text-sm transition-all ${
@@ -193,6 +181,7 @@ function App() {
                 ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
                 : 'bg-white/5 text-gray-400 hover:bg-white/10 border border-white/5'
             }`}
+            aria-pressed={activeFilter === 'all'}
           >
             全部
           </button>
@@ -205,16 +194,17 @@ function App() {
                   ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
                   : 'bg-white/5 text-gray-400 hover:bg-white/10 border border-white/5'
               }`}
+              aria-pressed={activeFilter === cat}
             >
               {label}
             </button>
           ))}
-        </div>
+        </nav>
 
-        {/* Changes List */}
-        <div className="space-y-3">
+        {/* 变更列表 */}
+        <div className="space-y-3" role="list" aria-label="变更列表">
           {filteredChanges.map((change, index) => (
-            <div
+            <article
               key={`${change.rawTitle}-${index}`}
               className="bg-[#1a1a2e]/50 rounded-xl border border-white/5 p-4 hover:bg-[#1a1a2e] transition-all animate-fade-in"
               style={{ animationDelay: `${index * 50}ms` }}
@@ -227,7 +217,9 @@ function App() {
                   <span className="ml-1">{change.type.label}</span>
                 </span>
                 <div className="flex-1 min-w-0">
-                  <p className="text-gray-200 leading-relaxed">{change.title}</p>
+                  <p className="text-gray-200 leading-relaxed">
+                    {change.title}
+                  </p>
                   <div className="flex items-center gap-2 mt-2">
                     <span className="text-xs px-2 py-0.5 rounded bg-white/5 text-gray-500">
                       {change.categoryLabel}
@@ -247,7 +239,7 @@ function App() {
                   </div>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
@@ -258,11 +250,11 @@ function App() {
           </div>
         )}
 
-        {/* Category Groups (Collapsed View) */}
+        {/* 按模块分组（折叠视图） */}
         {activeFilter === 'all' && (
-          <div className="mt-8 space-y-4">
+          <section className="mt-8 space-y-4" aria-label="按模块查看变更">
             <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-              <span className="w-1 h-6 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full"></span>
+              <span className="w-1 h-6 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full" />
               按模块查看
             </h3>
             {categories.map(([cat, { label, items }]) => (
@@ -302,7 +294,9 @@ function App() {
                         >
                           {getTypeIcon(item.type.type)}
                         </span>
-                        <span className="text-sm text-gray-200">{item.title}</span>
+                        <span className="text-sm text-gray-200">
+                          {item.title}
+                        </span>
                       </div>
                       {item.link && (
                         <a
@@ -320,31 +314,10 @@ function App() {
                 </div>
               </details>
             ))}
-          </div>
+          </section>
         )}
       </main>
-
-      {/* Footer */}
-      <footer className="border-t border-white/5 mt-16 py-8">
-        <div className="max-w-5xl mx-auto px-4 text-center">
-          <p className="text-sm text-gray-500">
-            数据来源：
-            <a
-              href="https://github.com/openclaw/openclaw"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-purple-400 hover:text-purple-300"
-            >
-              openclaw/openclaw
-            </a>
-            <span className="mx-2">•</span>由 GitHub Actions 自动同步
-          </p>
-          <p className="text-xs text-gray-600 mt-2">本页面由 OpenClaw AI 辅助构建</p>
-        </div>
-      </footer>
       <Analytics />
-    </div>
+    </>
   )
 }
-
-export default App

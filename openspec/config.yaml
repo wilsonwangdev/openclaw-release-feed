@@ -1,0 +1,19 @@
+schema: spec-driven
+
+context: |
+  技术栈：Astro 5 + React 18（岛屿架构）+ Tailwind CSS 3.4
+  包管理器：pnpm
+  代码检查：oxlint + oxfmt
+  数据来源：GitHub REST API（openclaw/openclaw releases）
+  部署平台：Vercel
+  界面语言：中文（zh-CN），数据源为英文
+  提交规范：conventional commits（feat/fix/docs/refactor/chore）
+  项目类型：单页静态站点，使用 React 岛屿实现版本切换和筛选交互
+
+rules:
+  proposal:
+    - 包含"非目标"章节以明确范围边界
+    - 引用具体受影响的文件路径
+  tasks:
+    - 任务拆分为不超过 2 小时的工作块
+    - 包含验证步骤

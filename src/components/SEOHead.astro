@@ -1,0 +1,54 @@
+---
+interface Props {
+  title: string
+  description: string
+  canonicalURL?: string
+  ogImage?: string
+}
+
+const {
+  title,
+  description,
+  canonicalURL = 'https://openclaw-release-feed.vercel.app',
+  ogImage = '/og-image.png',
+} = Astro.props
+
+const ogImageURL = new URL(ogImage, canonicalURL).href
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImageURL} />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:site_name" content="OpenClaw 更新快讯" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageURL} />
+
+<!-- JSON-LD 结构化数据 -->
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'OpenClaw 更新快讯',
+    url: canonicalURL,
+    description: description,
+    inLanguage: 'zh-CN',
+    publisher: {
+      '@type': 'Organization',
+      name: 'OpenClaw',
+      url: 'https://github.com/openclaw/openclaw',
+    },
+  })}
+/>

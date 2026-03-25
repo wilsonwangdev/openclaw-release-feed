@@ -15,5 +15,5 @@
       }
     }
   ],
-  "ignorePatterns": ["dist", "node_modules", "src/data/releases.json"]
+  "ignorePatterns": ["dist", ".astro", "**/*.astro", "node_modules", "src/data/releases.json"]
 }

@@ -55,12 +55,3 @@ jobs:
           else
             echo "No changes to commit"
           fi
-
-      # 每次推送新数据时触发 Pages 部署（GitHub Pages 模式）
-      - name: Upload artifact for Pages
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-        env:
-          GENERATE_STATS: 'false'

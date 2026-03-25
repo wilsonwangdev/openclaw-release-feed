@@ -18,3 +18,5 @@ jobs:
       - run: pnpm oxlint .
       - run: pnpm oxfmt --check
       - run: pnpm build
+        env:
+          SITE: https://openclaw-release-feed.vercel.app

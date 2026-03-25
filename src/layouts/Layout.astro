@@ -1,10 +1,23 @@
+---
+import SEOHead from '../components/SEOHead.astro'
+import '../index.css'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = 'OpenClaw 更新快讯',
+  description = '追踪 OpenClaw 最新版本发布，中文翻译、智能分类、版本对比，帮助中国开发者快速了解 OpenClaw 最新动态',
+} = Astro.props
+---
+
 <!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OpenClaw 更新快讯</title>
-    <meta name="description" content="追踪 OpenClaw 最新版本发布，中文友好界面" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,9 +25,9 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <SEOHead title={title} description={description} />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <slot />
   </body>
 </html>
