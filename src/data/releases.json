@@ -1,5 +1,1552 @@
 [
   {
+    "id": 309531527,
+    "tagName": "v2026.4.15-beta.1",
+    "name": "OpenClaw 2026.4.15-beta.1",
+    "htmlUrl": "https://github.com/openclaw/openclaw/releases/tag/v2026.4.15-beta.1",
+    "publishedAt": "2026-04-15T19:40:30Z",
+    "author": {
+      "name": "steipete",
+      "avatar": "https://avatars.githubusercontent.com/u/58493?v=4",
+      "url": "https://github.com/steipete"
+    },
+    "isPrerelease": true,
+    "isDraft": false,
+    "changes": [
+      {
+        "title": "Control 界面/Overview: 添加 a 模型 认证 status card showing OAuth认证 令牌 health 和 provider rate-limit pressure at a glance, 使用 attention callouts 当 OAuth认证 tokens are expiring 或 expired. Backed 通过 a new `模型.authStatus` 网关 method that strips credentials 和 caches 为了 60s. (#66211) Thanks @omarshahine.",
+        "rawTitle": "Control UI/Overview: add a Model Auth status card showing OAuth token health and provider rate-limit pressure at a glance, with attention callouts when OAuth tokens are expiring or expired. Backed by a new `models.authStatus` gateway method that strips credentials and caches for 60s. (#66211) Thanks @omarshahine.",
+        "link": null,
+        "category": "models",
+        "categoryLabel": "🤖 模型集成",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "内存/LanceDB: 添加 cloud storage 支持 to `内存-lancedb` so durable 内存 indexes can run 在 remote object storage 而不是 local disk only. (#63502) Thanks @rugvedS07.",
+        "rawTitle": "Memory/LanceDB: add cloud storage support to `memory-lancedb` so durable memory indexes can run on remote object storage instead of local disk only. (#63502) Thanks @rugvedS07.",
+        "link": null,
+        "category": "data",
+        "categoryLabel": "💾 数据/缓存",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "GitHub Copilot/内存 search: 添加 a GitHub Copilot embedding provider 为了 内存 search, 和 expose a dedicated Copilot embedding host helper so 插件 can 复用 the transport while honoring remote overrides, 令牌 refresh, 和 safer payload validation. (#61718) Thanks @feiskyer 和 @vincentkoc.",
+        "rawTitle": "GitHub Copilot/memory search: add a GitHub Copilot embedding provider for memory search, and expose a dedicated Copilot embedding host helper so plugins can reuse the transport while honoring remote overrides, token refresh, and safer payload validation. (#61718) Thanks @feiskyer and @vincentkoc.",
+        "link": null,
+        "category": "ci",
+        "categoryLabel": "🔄 CI/CD",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Agent/local 模型: 添加 experimental `Agent.defaults.experimental.localModelLean: true` to drop heavyweight default tools like `浏览器`, `cron`, 和 `message`, reducing prompt size 为了 weaker local-模型 setups 不适用 changing the normal 路径. (#66495) Thanks @ImLukeF.",
+        "rawTitle": "Agents/local models: add experimental `agents.defaults.experimental.localModelLean: true` to drop heavyweight default tools like `browser`, `cron`, and `message`, reducing prompt size for weaker local-model setups without changing the normal path. (#66495) Thanks @ImLukeF.",
+        "link": null,
+        "category": "browser",
+        "categoryLabel": "🌐 浏览器支持",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Packaging/插件: localize bundled 插件 runtime deps to their owning extensions, trim the published docs payload, 和 tighten install/package-manager guardrails so published builds stay leaner 和 core stops carrying extension-owned runtime baggage. (#67099) Thanks @vincentkoc.",
+        "rawTitle": "Packaging/plugins: localize bundled plugin runtime deps to their owning extensions, trim the published docs payload, and tighten install/package-manager guardrails so published builds stay leaner and core stops carrying extension-owned runtime baggage. (#67099) Thanks @vincentkoc.",
+        "link": null,
+        "category": "plugins",
+        "categoryLabel": "🧩 插件/技能",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "QA/Matrix: split Matrix live QA 进入 a source-linked `qa-matrix` runner 和 keep repo-private `qa-*` surfaces out 的 packaged 和 published builds. (#66723) Thanks @gumadeiras.",
+        "rawTitle": "QA/Matrix: split Matrix live QA into a source-linked `qa-matrix` runner and keep repo-private `qa-*` surfaces out of packaged and published builds. (#66723) Thanks @gumadeiras.",
+        "link": null,
+        "category": "other",
+        "categoryLabel": "📦 其他",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Docs/showcase: 添加 a scannable hero, complete section jump links, 和 a responsive video grid 为了 community examples. (#48493) Thanks @jchopard69.",
+        "rawTitle": "Docs/showcase: add a scannable hero, complete section jump links, and a responsive video grid for community examples. (#48493) Thanks @jchopard69.",
+        "link": null,
+        "category": "other",
+        "categoryLabel": "📦 其他",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "安全/approvals: redact secrets 在 exec approval prompts so inline approval review can no longer leak credential material 在 rendered prompt content. (#61077, #64790)",
+        "rawTitle": "Security/approvals: redact secrets in exec approval prompts so inline approval review can no longer leak credential material in rendered prompt content. (#61077, #64790)",
+        "link": null,
+        "category": "security",
+        "categoryLabel": "🔐 安全相关",
+        "type": {
+          "type": "security",
+          "icon": "🔒",
+          "label": "安全"
+        }
+      },
+      {
+        "title": "CLI/configure: re-read the persisted 配置 hash 之后 writes so 配置 updates 停止 failing 使用 stale-hash races. (#64188, #66528)",
+        "rawTitle": "CLI/configure: re-read the persisted config hash after writes so config updates stop failing with stale-hash races. (#64188, #66528)",
+        "link": null,
+        "category": "core",
+        "categoryLabel": "⚙️ 核心系统",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "CLI/更新: prune stale packaged `dist` chunks 之后 npm upgrades 和 keep downgrade/verify inventory checks compat-safe so global upgrades 停止 failing 在 stale chunk imports. (#66959) Thanks @obviyus.",
+        "rawTitle": "CLI/update: prune stale packaged `dist` chunks after npm upgrades and keep downgrade/verify inventory checks compat-safe so global upgrades stop failing on stale chunk imports. (#66959) Thanks @obviyus.",
+        "link": null,
+        "category": "security",
+        "categoryLabel": "🔐 安全相关",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Onboarding/CLI: 修复 channel-selection crashes 在 globally installed CLI setups 期间 onboarding. (#66736)",
+        "rawTitle": "Onboarding/CLI: fix channel-selection crashes on globally installed CLI setups during onboarding. (#66736)",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Video generation/live tests: bound provider polling 为了 live video smoke, default to the fast non-FAL text-to-video 路径, 和 use a one-second lobster prompt so release validation no longer waits indefinitely 在 slow provider queues.",
+        "rawTitle": "Video generation/live tests: bound provider polling for live video smoke, default to the fast non-FAL text-to-video path, and use a one-second lobster prompt so release validation no longer waits indefinitely on slow provider queues.",
+        "link": null,
+        "category": "performance",
+        "categoryLabel": "🚀 性能优化",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "内存-core/QMD `memory_get`: reject reads 的 arbitrary workspace markdown paths 和 only 允许 canonical 内存 files (`内存.md`, `内存.md`, `DREAMS.md`, `dreams.md`, `内存/**`) plus exact paths 的 active indexed QMD workspace documents, so the QMD 内存 backend can no longer be used as a generic workspace-file read shim that bypasses `read` 工具-policy denials. (#66026) Thanks @eleqtrizit.",
+        "rawTitle": "Memory-core/QMD `memory_get`: reject reads of arbitrary workspace markdown paths and only allow canonical memory files (`MEMORY.md`, `memory.md`, `DREAMS.md`, `dreams.md`, `memory/**`) plus exact paths of active indexed QMD workspace documents, so the QMD memory backend can no longer be used as a generic workspace-file read shim that bypasses `read` tool-policy denials. (#66026) Thanks @eleqtrizit.",
+        "link": null,
+        "category": "data",
+        "categoryLabel": "💾 数据/缓存",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Cron/Agent: forward embedded-run 工具 policy 和 internal event params 进入 the attempt layer so `--tools` allowlists, cron-owned message-工具 suppression, explicit message targeting, 和 命令-路径 internal events all take effect at runtime 重新. (#62675) Thanks @hexsprite.",
+        "rawTitle": "Cron/agents: forward embedded-run tool policy and internal event params into the attempt layer so `--tools` allowlists, cron-owned message-tool suppression, explicit message targeting, and command-path internal events all take effect at runtime again. (#62675) Thanks @hexsprite.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Setup/providers: guard preferred-provider lookup 期间 setup so malformed 插件 metadata 使用 a missing provider id no longer crashes the wizard 使用 `Cannot read properties 的 undefined (reading 'trim')`. (#66649) Thanks @Tianworld.",
+        "rawTitle": "Setup/providers: guard preferred-provider lookup during setup so malformed plugin metadata with a missing provider id no longer crashes the wizard with `Cannot read properties of undefined (reading 'trim')`. (#66649) Thanks @Tianworld.",
+        "link": null,
+        "category": "plugins",
+        "categoryLabel": "🧩 插件/技能",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Matrix/安全: normalize sandboxed profile avatar params, 保留 `mxc://` avatar URLs, 和 surface gmail watcher 停止 failures 期间 reload. (#64701) Thanks @slepybear.",
+        "rawTitle": "Matrix/security: normalize sandboxed profile avatar params, preserve `mxc://` avatar URLs, and surface gmail watcher stop failures during reload. (#64701) Thanks @slepybear.",
+        "link": null,
+        "category": "security",
+        "categoryLabel": "🔐 安全相关",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Telegram/documents: drop leaked binary caption bytes 从 inbound Telegram text handling so document uploads like `.mobi` 或 `.epub` no longer explode prompt 令牌 counts. (#66663) Thanks @joelnishanth.",
+        "rawTitle": "Telegram/documents: drop leaked binary caption bytes from inbound Telegram text handling so document uploads like `.mobi` or `.epub` no longer explode prompt token counts. (#66663) Thanks @joelnishanth.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "网关/认证: 解决 the active 网关 bearer per-request 在 the HTTP server 和 the HTTP upgrade handler via `getResolvedAuth()`, mirroring the WebSocket 路径, so a secret rotated through `secrets.reload` 或 配置 hot-reload stops authenticating 在 `/v1/*`, `/tools/invoke`, 插件 HTTP routes, 和 the canvas upgrade 路径 immediately 而不是 remaining valid 在 HTTP until 网关 restart. (#66651) Thanks @mmaps.",
+        "rawTitle": "Gateway/auth: resolve the active gateway bearer per-request on the HTTP server and the HTTP upgrade handler via `getResolvedAuth()`, mirroring the WebSocket path, so a secret rotated through `secrets.reload` or config hot-reload stops authenticating on `/v1/*`, `/tools/invoke`, plugin HTTP routes, and the canvas upgrade path immediately instead of remaining valid on HTTP until gateway restart. (#66651) Thanks @mmaps.",
+        "link": null,
+        "category": "plugins",
+        "categoryLabel": "🧩 插件/技能",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Agent/compaction: cap the compaction reserve-令牌 floor to the 模型 context window so small-context local 模型 (e.g. Ollama 使用 16K tokens) no longer trigger context-overflow errors 或 infinite compaction loops 在 every prompt. (#65671) Thanks @openperf.",
+        "rawTitle": "Agents/compaction: cap the compaction reserve-token floor to the model context window so small-context local models (e.g. Ollama with 16K tokens) no longer trigger context-overflow errors or infinite compaction loops on every prompt. (#65671) Thanks @openperf.",
+        "link": null,
+        "category": "models",
+        "categoryLabel": "🤖 模型集成",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Agent/OpenAI Responses: classify the exact `Unknown 错误 (no 错误 details 在 response)` transport failure as failover reason `unknown` so assistant/模型 fallback still runs 为了 that no-details failure 路径. (#65254) Thanks @OpenCodeEngineer.",
+        "rawTitle": "Agents/OpenAI Responses: classify the exact `Unknown error (no error details in response)` transport failure as failover reason `unknown` so assistant/model fallback still runs for that no-details failure path. (#65254) Thanks @OpenCodeEngineer.",
+        "link": null,
+        "category": "models",
+        "categoryLabel": "🤖 模型集成",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "模型/probe: surface invalid-模型 probe failures as `format` 而不是 `unknown` 在 `模型 list --probe`, 和 lock the invalid-模型 fallback 路径 在 使用 regression coverage. (#50028) Thanks @xiwuqi.",
+        "rawTitle": "Models/probe: surface invalid-model probe failures as `format` instead of `unknown` in `models list --probe`, and lock the invalid-model fallback path in with regression coverage. (#50028) Thanks @xiwuqi.",
+        "link": null,
+        "category": "models",
+        "categoryLabel": "🤖 模型集成",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Agent/failover: classify OpenAI-compatible `finish_reason: network_error` stream failures as 超时 so 模型 fallback retries continue 而不是 stopping 使用 an unknown failover reason. (#61784) thanks @lawrence3699.",
+        "rawTitle": "Agents/failover: classify OpenAI-compatible `finish_reason: network_error` stream failures as timeout so model fallback retries continue instead of stopping with an unknown failover reason. (#61784) thanks @lawrence3699.",
+        "link": null,
+        "category": "models",
+        "categoryLabel": "🤖 模型集成",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Onboarding/channels: normalize channel setup metadata 之前 discovery 和 validation so malformed 或 mixed-shape channel 插件 metadata no longer breaks setup 和 onboarding channel lists. (#66706) Thanks @darkamenosa.",
+        "rawTitle": "Onboarding/channels: normalize channel setup metadata before discovery and validation so malformed or mixed-shape channel plugin metadata no longer breaks setup and onboarding channel lists. (#66706) Thanks @darkamenosa.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Slack/native commands: 修复 选项 menus 为了 slash commands such as `/verbose` 当 Slack renders native buttons 通过 giving each button a unique action ID while still routing them through the shared `openclaw_cmdarg*` listener. Thanks @Wangmerlyn.",
+        "rawTitle": "Slack/native commands: fix option menus for slash commands such as `/verbose` when Slack renders native buttons by giving each button a unique action ID while still routing them through the shared `openclaw_cmdarg*` listener. Thanks @Wangmerlyn.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "飞书/Webhook: harden the Webhook transport 和 card-action replay guards to fail closed 在 missing `encryptKey` 和 blank callback tokens — refuse to start the Webhook transport 不适用 an `encryptKey`, reject unsigned requests 当 no 密钥 is present 而不是 accepting them, 和 drop blank card-action tokens 之前 the dedupe claim 和 dispatcher. Defense-在-depth over the already-closed monitor-account layer. (#66707) Thanks @eleqtrizit.",
+        "rawTitle": "Feishu/webhook: harden the webhook transport and card-action replay guards to fail closed on missing `encryptKey` and blank callback tokens — refuse to start the webhook transport without an `encryptKey`, reject unsigned requests when no key is present instead of accepting them, and drop blank card-action tokens before the dedupe claim and dispatcher. Defense-in-depth over the already-closed monitor-account layer. (#66707) Thanks @eleqtrizit.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Agent/workspace files: route `Agent.files.get`, `Agent.files.set`, 和 workspace listing through the shared `fs-safe` helpers (`openFileWithinRoot`/`readFileWithinRoot`/`writeFileWithinRoot`), reject symlink aliases 为了 allowlisted Agent files, 和 have `fs-safe` 解决 opened-file real paths 从 the file descriptor 之前 falling back to 路径-based `realpath` so a symlink swap 之间 `open` 和 `realpath` can no longer redirect the validated 路径 off the intended inode. (#66636) Thanks @eleqtrizit.",
+        "rawTitle": "Agents/workspace files: route `agents.files.get`, `agents.files.set`, and workspace listing through the shared `fs-safe` helpers (`openFileWithinRoot`/`readFileWithinRoot`/`writeFileWithinRoot`), reject symlink aliases for allowlisted agent files, and have `fs-safe` resolve opened-file real paths from the file descriptor before falling back to path-based `realpath` so a symlink swap between `open` and `realpath` can no longer redirect the validated path off the intended inode. (#66636) Thanks @eleqtrizit.",
+        "link": null,
+        "category": "agents",
+        "categoryLabel": "🤖 Agent系统",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "网关/MCP协议 loopback: switch the `/MCP协议` bearer comparison 从 plain `!==` to constant-time `safeEqualSecret` (matching the convention every other 认证 surface 在 the codebase uses), 和 reject non-loopback 浏览器-origin requests via `checkBrowserOrigin` 之前 the 认证 gate runs. Loopback origins (`127.0.0.1:*`, `localhost:*`, same-origin) still go through, including the `localhost`↔`127.0.0.1` host mismatch that browsers flag as `Sec-Fetch-Site: cross-site`. (#66665) Thanks @eleqtrizit.",
+        "rawTitle": "Gateway/MCP loopback: switch the `/mcp` bearer comparison from plain `!==` to constant-time `safeEqualSecret` (matching the convention every other auth surface in the codebase uses), and reject non-loopback browser-origin requests via `checkBrowserOrigin` before the auth gate runs. Loopback origins (`127.0.0.1:*`, `localhost:*`, same-origin) still go through, including the `localhost`↔`127.0.0.1` host mismatch that browsers flag as `Sec-Fetch-Site: cross-site`. (#66665) Thanks @eleqtrizit.",
+        "link": null,
+        "category": "browser",
+        "categoryLabel": "🌐 浏览器支持",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Auto-reply/billing: classify pure billing cooldown fallback summaries 从 structured fallback reasons so users see billing guidance 而不是 the generic failure reply. (#66363) Thanks @Rohan5commit.",
+        "rawTitle": "Auto-reply/billing: classify pure billing cooldown fallback summaries from structured fallback reasons so users see billing guidance instead of the generic failure reply. (#66363) Thanks @Rohan5commit.",
+        "link": null,
+        "category": "other",
+        "categoryLabel": "📦 其他",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Agent/fallback: 保留 the original prompt body 在 模型 fallback retries 使用 session history so the retrying 模型 keeps the active task 而不是 only seeing a generic continue message. (#66029) Thanks @WuKongAI-CMU.",
+        "rawTitle": "Agents/fallback: preserve the original prompt body on model fallback retries with session history so the retrying model keeps the active task instead of only seeing a generic continue message. (#66029) Thanks @WuKongAI-CMU.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Reply/secrets: 解决 active reply channel/account SecretRefs 之前 reply-run message-action discovery so channel 令牌 SecretRefs (为了 example Discord) do not degrade 进入 discovery-time unresolved-secret failures. (#66796) Thanks @joshavant.",
+        "rawTitle": "Reply/secrets: resolve active reply channel/account SecretRefs before reply-run message-action discovery so channel token SecretRefs (for example Discord) do not degrade into discovery-time unresolved-secret failures. (#66796) Thanks @joshavant.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Agent/Anthropic: ignore non-positive Anthropic Messages 令牌 overrides 和 fail locally 当 no positive 令牌 budget remains, so invalid `max_tokens` values no longer reach the provider API. (#66664) thanks @jalehman",
+        "rawTitle": "Agents/Anthropic: ignore non-positive Anthropic Messages token overrides and fail locally when no positive token budget remains, so invalid `max_tokens` values no longer reach the provider API. (#66664) thanks @jalehman",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Agent/context engines: 保留 prompt-only 令牌 counts, not full request totals, 当 deferred maintenance reuses 之后-turn runtime context so background compaction bookkeeping matches the active prompt window. (#66820) thanks @jalehman.",
+        "rawTitle": "Agents/context engines: preserve prompt-only token counts, not full request totals, when deferred maintenance reuses after-turn runtime context so background compaction bookkeeping matches the active prompt window. (#66820) thanks @jalehman.",
+        "link": null,
+        "category": "models",
+        "categoryLabel": "🤖 模型集成",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "BlueBubbles/inbound: 添加 a persistent file-backed GUID dedupe so MessagePoller Webhook replays 之后 BB Server restart 或 reconnect no longer cause the Agent to re-reply to already-handled messages. (#19176, #12053, #66816) Thanks @omarshahine.",
+        "rawTitle": "BlueBubbles/inbound: add a persistent file-backed GUID dedupe so MessagePoller webhook replays after BB Server restart or reconnect no longer cause the agent to re-reply to already-handled messages. (#19176, #12053, #66816) Thanks @omarshahine.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Secrets/插件/status: align SecretRef inspect-vs-strict handling across 插件 preload, read-only status/Agent surfaces, 和 runtime 认证 paths so unresolved refs no longer 崩溃 read-only CLI flows while runtime-required non-env refs stay strict. (#66818) Thanks @joshavant.",
+        "rawTitle": "Secrets/plugins/status: align SecretRef inspect-vs-strict handling across plugin preload, read-only status/agents surfaces, and runtime auth paths so unresolved refs no longer crash read-only CLI flows while runtime-required non-env refs stay strict. (#66818) Thanks @joshavant.",
+        "link": null,
+        "category": "plugins",
+        "categoryLabel": "🧩 插件/技能",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "内存/dreaming: 停止 ordinary transcripts that merely quote the dream-diary prompt 从 being classified as internal dreaming runs 和 静默地 dropped 从 session recall ingestion. (#66852) Thanks @gumadeiras.",
+        "rawTitle": "Memory/dreaming: stop ordinary transcripts that merely quote the dream-diary prompt from being classified as internal dreaming runs and silently dropped from session recall ingestion. (#66852) Thanks @gumadeiras.",
+        "link": null,
+        "category": "voice",
+        "categoryLabel": "📞 语音通话",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Telegram/documents: sanitize binary reply context 和 ZIP-like archive extraction so `.epub` 和 `.mobi` uploads can no longer leak raw binary 进入 prompt context through reply metadata 或 archive-to-`text/plain` coercion. (#66877) Thanks @martinfrancois.",
+        "rawTitle": "Telegram/documents: sanitize binary reply context and ZIP-like archive extraction so `.epub` and `.mobi` uploads can no longer leak raw binary into prompt context through reply metadata or archive-to-`text/plain` coercion. (#66877) Thanks @martinfrancois.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Telegram/native commands: restore 插件-registry-backed auto defaults 为了 native commands 和 native skills so Telegram slash commands keep registering 当 `commands.native` 和 `commands.nativeSkills` stay 在 `auto`. (#66843) Thanks @kashevk0.",
+        "rawTitle": "Telegram/native commands: restore plugin-registry-backed auto defaults for native commands and native skills so Telegram slash commands keep registering when `commands.native` and `commands.nativeSkills` stay on `auto`. (#66843) Thanks @kashevk0.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "OpenRouter/Qwen3: parse `reasoning_details` stream deltas as thinking content 不适用 skipping same-chunk 工具 calls, so Qwen3 replies no longer fail empty 在 OpenRouter 和 mixed reasoning/工具-call chunks still execute normally. (#66905) Thanks @bladin.",
+        "rawTitle": "OpenRouter/Qwen3: parse `reasoning_details` stream deltas as thinking content without skipping same-chunk tool calls, so Qwen3 replies no longer fail empty on OpenRouter and mixed reasoning/tool-call chunks still execute normally. (#66905) Thanks @bladin.",
+        "link": null,
+        "category": "models",
+        "categoryLabel": "🤖 模型集成",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "修复(bluebubbles): replay missed Webhook messages 之后 网关 restart via a persistent per-account cursor 和 `/API/v1/message/query?之后=<ts>` pass, so messages delivered while the 网关 was down no longer disappear. Uses the existing `processMessage` 路径 和 is deduped 通过 #66816's inbound GUID cache. (#66857, #66721) Thanks @omarshahine.",
+        "rawTitle": "fix(bluebubbles): replay missed webhook messages after gateway restart via a persistent per-account cursor and `/api/v1/message/query?after=<ts>` pass, so messages delivered while the gateway was down no longer disappear. Uses the existing `processMessage` path and is deduped by #66816's inbound GUID cache. (#66857, #66721) Thanks @omarshahine.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "fix",
+          "icon": "🐛",
+          "label": "修复"
+        }
+      },
+      {
+        "title": "Telegram/native commands: keep Telegram 命令-sync cache process-local so 网关 restarts re-register the menu 而不是 trusting stale 在-disk sync state 之后 Telegram cleared commands out-的-band. (#66730) Thanks @nightq.",
+        "rawTitle": "Telegram/native commands: keep Telegram command-sync cache process-local so gateway restarts re-register the menu instead of trusting stale on-disk sync state after Telegram cleared commands out-of-band. (#66730) Thanks @nightq.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Audio/self-hosted STT: restore `模型.providers.*.request.allowPrivateNetwork` 为了 audio transcription so private 或 LAN speech-to-text endpoints 停止 tripping SSRF blocks 之后 the v2026.4.14 regression. (#66692) Thanks @jhsmith409.",
+        "rawTitle": "Audio/self-hosted STT: restore `models.providers.*.request.allowPrivateNetwork` for audio transcription so private or LAN speech-to-text endpoints stop tripping SSRF blocks after the v2026.4.14 regression. (#66692) Thanks @jhsmith409.",
+        "link": null,
+        "category": "models",
+        "categoryLabel": "🤖 模型集成",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Auto-reply/media: 允许 workspace-rooted absolute media paths 在 auto-reply send flows so valid local media references no longer fail 路径 validation. (#66689)",
+        "rawTitle": "Auto-reply/media: allow workspace-rooted absolute media paths in auto-reply send flows so valid local media references no longer fail path validation. (#66689)",
+        "link": null,
+        "category": "other",
+        "categoryLabel": "📦 其他",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "WhatsApp/Baileys media upload: harden encrypted upload handling so large outbound media sends 避免 buffer spikes 和 reliability regressions. (#65966) Thanks @frankekn.",
+        "rawTitle": "WhatsApp/Baileys media upload: harden encrypted upload handling so large outbound media sends avoid buffer spikes and reliability regressions. (#65966) Thanks @frankekn.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "QQBot/cron: guard against undefined `event.content` 在 `parseFaceTags` 和 `filterInternalMarkers` so cron-triggered Agent turns 使用 no content payload no longer 崩溃 使用 `TypeError: Cannot read properties 的 undefined (reading 'startsWith')`. (#66302) Thanks @xinmotlanthua.",
+        "rawTitle": "QQBot/cron: guard against undefined `event.content` in `parseFaceTags` and `filterInternalMarkers` so cron-triggered agent turns with no content payload no longer crash with `TypeError: Cannot read properties of undefined (reading 'startsWith')`. (#66302) Thanks @xinmotlanthua.",
+        "link": null,
+        "category": "agents",
+        "categoryLabel": "🤖 Agent系统",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "CLI/插件: 停止 `--dangerously-force-unsafe-install` 插件 installs 从 falling back to hook-pack installs 之后 安全 scan failures, while still preserving non-安全 fallback behavior 为了 real hook packs. (#58909) Thanks @hxy91819.",
+        "rawTitle": "CLI/plugins: stop `--dangerously-force-unsafe-install` plugin installs from falling back to hook-pack installs after security scan failures, while still preserving non-security fallback behavior for real hook packs. (#58909) Thanks @hxy91819.",
+        "link": null,
+        "category": "plugins",
+        "categoryLabel": "🧩 插件/技能",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Claude CLI/sessions: classify `No conversation found 使用 session ID` as `session_expired` so expired CLI-backed conversations clear the stale binding 和 recover 在 the next turn. (#65028) thanks @Ivan-Fn.",
+        "rawTitle": "Claude CLI/sessions: classify `No conversation found with session ID` as `session_expired` so expired CLI-backed conversations clear the stale binding and recover on the next turn. (#65028) thanks @Ivan-Fn.",
+        "link": null,
+        "category": "other",
+        "categoryLabel": "📦 其他",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Context Engine: gracefully fall back to the legacy engine 当 a third-party context engine 插件 fails at resolution time (unregistered id, factory throw, 或 contract violation), preventing a full 网关 outage 在 every channel. (#66930) Thanks @openperf.",
+        "rawTitle": "Context Engine: gracefully fall back to the legacy engine when a third-party context engine plugin fails at resolution time (unregistered id, factory throw, or contract violation), preventing a full gateway outage on every channel. (#66930) Thanks @openperf.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Control 界面/chat: keep optimistic user message cards visible 期间 active sends 通过 deferring same-session history reloads until the active run ends, including aborted 和 errored runs. (#66997) Thanks @scotthuang 和 @vincentkoc.",
+        "rawTitle": "Control UI/chat: keep optimistic user message cards visible during active sends by deferring same-session history reloads until the active run ends, including aborted and errored runs. (#66997) Thanks @scotthuang and @vincentkoc.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Media/Slack: 允许 host-local CSV 和 Markdown uploads only 当 the fallback buffer actually decodes as text, so real plain-text files work 不适用 letting opaque non-text blobs renamed to `.csv` 或 `.md` slip past the host-read guard. (#67047) Thanks @Unayung.",
+        "rawTitle": "Media/Slack: allow host-local CSV and Markdown uploads only when the fallback buffer actually decodes as text, so real plain-text files work without letting opaque non-text blobs renamed to `.csv` or `.md` slip past the host-read guard. (#67047) Thanks @Unayung.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Ollama/onboarding: split setup 进入 `Cloud + Local`, `Cloud only`, 和 `Local only`, 支持 direct `OLLAMA_API_KEY` cloud setup 不适用 a local daemon, 和 keep Ollama web search 在 the local-host 路径. (#67005) Thanks @obviyus.",
+        "rawTitle": "Ollama/onboarding: split setup into `Cloud + Local`, `Cloud only`, and `Local only`, support direct `OLLAMA_API_KEY` cloud setup without a local daemon, and keep Ollama web search on the local-host path. (#67005) Thanks @obviyus.",
+        "link": null,
+        "category": "api",
+        "categoryLabel": "🔌 API/接口",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Docker/build: verify `@matrix-org/matrix-sdk-crypto-nodejs` native bindings 使用 `find` under `node_modules` 而不是 a hardcoded `.pnpm/...` 路径 so pnpm v10+ virtual-store layouts no longer fail the image build. (#67143) Thanks @ly85206559.",
+        "rawTitle": "Docker/build: verify `@matrix-org/matrix-sdk-crypto-nodejs` native bindings with `find` under `node_modules` instead of a hardcoded `.pnpm/...` path so pnpm v10+ virtual-store layouts no longer fail the image build. (#67143) Thanks @ly85206559.",
+        "link": null,
+        "category": "other",
+        "categoryLabel": "📦 其他",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Matrix/E2EE: keep startup bootstrap conservative 为了 passwordless 令牌-认证 bots, still attempt the guarded repair pass 不适用 requiring `channels.matrix.password`, 和 document the remaining password-UIA limitation. (#66228) Thanks @SARAMALI15792.",
+        "rawTitle": "Matrix/E2EE: keep startup bootstrap conservative for passwordless token-auth bots, still attempt the guarded repair pass without requiring `channels.matrix.password`, and document the remaining password-UIA limitation. (#66228) Thanks @SARAMALI15792.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Cron/announce delivery: suppress mixed-content isolated cron announce replies that end 使用 `NO_REPLY` so trailing silent sentinels no longer leak summary text to the target channel. (#65004) Thanks @neo1027144-creator.",
+        "rawTitle": "Cron/announce delivery: suppress mixed-content isolated cron announce replies that end with `NO_REPLY` so trailing silent sentinels no longer leak summary text to the target channel. (#65004) Thanks @neo1027144-creator.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "插件/bundled channels: partition bundled channel lazy caches 通过 active bundled root so `OPENCLAW_BUNDLED_PLUGINS_DIR` flips 停止 reusing stale 插件, setup, secrets, 和 runtime state. (#67200) Thanks @gumadeiras.",
+        "rawTitle": "Plugins/bundled channels: partition bundled channel lazy caches by active bundled root so `OPENCLAW_BUNDLED_PLUGINS_DIR` flips stop reusing stale plugin, setup, secrets, and runtime state. (#67200) Thanks @gumadeiras.",
+        "link": null,
+        "category": "channels",
+        "categoryLabel": "💬 消息渠道",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Packaging/插件: prune common test/spec cargo 从 bundled 插件 runtime dependencies 和 fail npm release validation if packaged test cargo reappears, keeping published tarballs leaner 不适用 插件-specific special cases. (#67275) Thanks @gumadeiras.",
+        "rawTitle": "Packaging/plugins: prune common test/spec cargo from bundled plugin runtime dependencies and fail npm release validation if packaged test cargo reappears, keeping published tarballs leaner without plugin-specific special cases. (#67275) Thanks @gumadeiras.",
+        "link": null,
+        "category": "ci",
+        "categoryLabel": "🔄 CI/CD",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Agent/context + 内存: trim default startup/skills prompt budgets, cap `memory_get` excerpts 通过 default 使用 explicit continuation metadata, 和 keep QMD reads aligned 使用 the same bounded excerpt contract so long sessions pull less context 通过 default 不适用 losing deterministic follow-up reads.",
+        "rawTitle": "Agents/context + Memory: trim default startup/skills prompt budgets, cap `memory_get` excerpts by default with explicit continuation metadata, and keep QMD reads aligned with the same bounded excerpt contract so long sessions pull less context by default without losing deterministic follow-up reads.",
+        "link": null,
+        "category": "ci",
+        "categoryLabel": "🔄 CI/CD",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Matrix/commands: skip DM pairing-store reads 在 room traffic 现在 that room control-命令 authorization ignores pairing-store entries, keeping the room 路径 narrower 不适用 changing room 认证 behavior. (#67325) Thanks @gumadeiras.",
+        "rawTitle": "Matrix/commands: skip DM pairing-store reads on room traffic now that room control-command authorization ignores pairing-store entries, keeping the room path narrower without changing room auth behavior. (#67325) Thanks @gumadeiras.",
+        "link": null,
+        "category": "security",
+        "categoryLabel": "🔐 安全相关",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Matrix/安全: block DM pairing-store entries 从 authorizing room control commands. (#67294) Thanks @pgondhi987.",
+        "rawTitle": "Matrix/security: block DM pairing-store entries from authorizing room control commands. (#67294) Thanks @pgondhi987.",
+        "link": null,
+        "category": "security",
+        "categoryLabel": "🔐 安全相关",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "网关/安全: enforce `localRoots` containment 在 the webchat audio embedding 路径. (#67298) Thanks @pgondhi987.",
+        "rawTitle": "Gateway/security: enforce `localRoots` containment on the webchat audio embedding path. (#67298) Thanks @pgondhi987.",
+        "link": null,
+        "category": "voice",
+        "categoryLabel": "📞 语音通话",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Webchat/安全: reject remote-host `file://` URLs 在 the media embedding 路径. (#67293) Thanks @pgondhi987.",
+        "rawTitle": "Webchat/security: reject remote-host `file://` URLs in the media embedding path. (#67293) Thanks @pgondhi987.",
+        "link": null,
+        "category": "security",
+        "categoryLabel": "🔐 安全相关",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Dreaming/内存-core: use the ingestion day, not the source file day, 为了 daily recall dedupe so repeat sweeps 的 the same daily note can increment `dailyCount` across days 而不是 stalling at `1`. (#67091) Thanks @Bartok9.",
+        "rawTitle": "Dreaming/memory-core: use the ingestion day, not the source file day, for daily recall dedupe so repeat sweeps of the same daily note can increment `dailyCount` across days instead of stalling at `1`. (#67091) Thanks @Bartok9.",
+        "link": null,
+        "category": "voice",
+        "categoryLabel": "📞 语音通话",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      }
+    ],
+    "changesByCategory": {
+      "models": {
+        "label": "🤖 模型集成",
+        "items": [
+          {
+            "title": "Control 界面/Overview: 添加 a 模型 认证 status card showing OAuth认证 令牌 health 和 provider rate-limit pressure at a glance, 使用 attention callouts 当 OAuth认证 tokens are expiring 或 expired. Backed 通过 a new `模型.authStatus` 网关 method that strips credentials 和 caches 为了 60s. (#66211) Thanks @omarshahine.",
+            "rawTitle": "Control UI/Overview: add a Model Auth status card showing OAuth token health and provider rate-limit pressure at a glance, with attention callouts when OAuth tokens are expiring or expired. Backed by a new `models.authStatus` gateway method that strips credentials and caches for 60s. (#66211) Thanks @omarshahine.",
+            "link": null,
+            "category": "models",
+            "categoryLabel": "🤖 模型集成",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Agent/compaction: cap the compaction reserve-令牌 floor to the 模型 context window so small-context local 模型 (e.g. Ollama 使用 16K tokens) no longer trigger context-overflow errors 或 infinite compaction loops 在 every prompt. (#65671) Thanks @openperf.",
+            "rawTitle": "Agents/compaction: cap the compaction reserve-token floor to the model context window so small-context local models (e.g. Ollama with 16K tokens) no longer trigger context-overflow errors or infinite compaction loops on every prompt. (#65671) Thanks @openperf.",
+            "link": null,
+            "category": "models",
+            "categoryLabel": "🤖 模型集成",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Agent/OpenAI Responses: classify the exact `Unknown 错误 (no 错误 details 在 response)` transport failure as failover reason `unknown` so assistant/模型 fallback still runs 为了 that no-details failure 路径. (#65254) Thanks @OpenCodeEngineer.",
+            "rawTitle": "Agents/OpenAI Responses: classify the exact `Unknown error (no error details in response)` transport failure as failover reason `unknown` so assistant/model fallback still runs for that no-details failure path. (#65254) Thanks @OpenCodeEngineer.",
+            "link": null,
+            "category": "models",
+            "categoryLabel": "🤖 模型集成",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "模型/probe: surface invalid-模型 probe failures as `format` 而不是 `unknown` 在 `模型 list --probe`, 和 lock the invalid-模型 fallback 路径 在 使用 regression coverage. (#50028) Thanks @xiwuqi.",
+            "rawTitle": "Models/probe: surface invalid-model probe failures as `format` instead of `unknown` in `models list --probe`, and lock the invalid-model fallback path in with regression coverage. (#50028) Thanks @xiwuqi.",
+            "link": null,
+            "category": "models",
+            "categoryLabel": "🤖 模型集成",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Agent/failover: classify OpenAI-compatible `finish_reason: network_error` stream failures as 超时 so 模型 fallback retries continue 而不是 stopping 使用 an unknown failover reason. (#61784) thanks @lawrence3699.",
+            "rawTitle": "Agents/failover: classify OpenAI-compatible `finish_reason: network_error` stream failures as timeout so model fallback retries continue instead of stopping with an unknown failover reason. (#61784) thanks @lawrence3699.",
+            "link": null,
+            "category": "models",
+            "categoryLabel": "🤖 模型集成",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Agent/context engines: 保留 prompt-only 令牌 counts, not full request totals, 当 deferred maintenance reuses 之后-turn runtime context so background compaction bookkeeping matches the active prompt window. (#66820) thanks @jalehman.",
+            "rawTitle": "Agents/context engines: preserve prompt-only token counts, not full request totals, when deferred maintenance reuses after-turn runtime context so background compaction bookkeeping matches the active prompt window. (#66820) thanks @jalehman.",
+            "link": null,
+            "category": "models",
+            "categoryLabel": "🤖 模型集成",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "OpenRouter/Qwen3: parse `reasoning_details` stream deltas as thinking content 不适用 skipping same-chunk 工具 calls, so Qwen3 replies no longer fail empty 在 OpenRouter 和 mixed reasoning/工具-call chunks still execute normally. (#66905) Thanks @bladin.",
+            "rawTitle": "OpenRouter/Qwen3: parse `reasoning_details` stream deltas as thinking content without skipping same-chunk tool calls, so Qwen3 replies no longer fail empty on OpenRouter and mixed reasoning/tool-call chunks still execute normally. (#66905) Thanks @bladin.",
+            "link": null,
+            "category": "models",
+            "categoryLabel": "🤖 模型集成",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Audio/self-hosted STT: restore `模型.providers.*.request.allowPrivateNetwork` 为了 audio transcription so private 或 LAN speech-to-text endpoints 停止 tripping SSRF blocks 之后 the v2026.4.14 regression. (#66692) Thanks @jhsmith409.",
+            "rawTitle": "Audio/self-hosted STT: restore `models.providers.*.request.allowPrivateNetwork` for audio transcription so private or LAN speech-to-text endpoints stop tripping SSRF blocks after the v2026.4.14 regression. (#66692) Thanks @jhsmith409.",
+            "link": null,
+            "category": "models",
+            "categoryLabel": "🤖 模型集成",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          }
+        ]
+      },
+      "data": {
+        "label": "💾 数据/缓存",
+        "items": [
+          {
+            "title": "内存/LanceDB: 添加 cloud storage 支持 to `内存-lancedb` so durable 内存 indexes can run 在 remote object storage 而不是 local disk only. (#63502) Thanks @rugvedS07.",
+            "rawTitle": "Memory/LanceDB: add cloud storage support to `memory-lancedb` so durable memory indexes can run on remote object storage instead of local disk only. (#63502) Thanks @rugvedS07.",
+            "link": null,
+            "category": "data",
+            "categoryLabel": "💾 数据/缓存",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "内存-core/QMD `memory_get`: reject reads 的 arbitrary workspace markdown paths 和 only 允许 canonical 内存 files (`内存.md`, `内存.md`, `DREAMS.md`, `dreams.md`, `内存/**`) plus exact paths 的 active indexed QMD workspace documents, so the QMD 内存 backend can no longer be used as a generic workspace-file read shim that bypasses `read` 工具-policy denials. (#66026) Thanks @eleqtrizit.",
+            "rawTitle": "Memory-core/QMD `memory_get`: reject reads of arbitrary workspace markdown paths and only allow canonical memory files (`MEMORY.md`, `memory.md`, `DREAMS.md`, `dreams.md`, `memory/**`) plus exact paths of active indexed QMD workspace documents, so the QMD memory backend can no longer be used as a generic workspace-file read shim that bypasses `read` tool-policy denials. (#66026) Thanks @eleqtrizit.",
+            "link": null,
+            "category": "data",
+            "categoryLabel": "💾 数据/缓存",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          }
+        ]
+      },
+      "ci": {
+        "label": "🔄 CI/CD",
+        "items": [
+          {
+            "title": "GitHub Copilot/内存 search: 添加 a GitHub Copilot embedding provider 为了 内存 search, 和 expose a dedicated Copilot embedding host helper so 插件 can 复用 the transport while honoring remote overrides, 令牌 refresh, 和 safer payload validation. (#61718) Thanks @feiskyer 和 @vincentkoc.",
+            "rawTitle": "GitHub Copilot/memory search: add a GitHub Copilot embedding provider for memory search, and expose a dedicated Copilot embedding host helper so plugins can reuse the transport while honoring remote overrides, token refresh, and safer payload validation. (#61718) Thanks @feiskyer and @vincentkoc.",
+            "link": null,
+            "category": "ci",
+            "categoryLabel": "🔄 CI/CD",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Packaging/插件: prune common test/spec cargo 从 bundled 插件 runtime dependencies 和 fail npm release validation if packaged test cargo reappears, keeping published tarballs leaner 不适用 插件-specific special cases. (#67275) Thanks @gumadeiras.",
+            "rawTitle": "Packaging/plugins: prune common test/spec cargo from bundled plugin runtime dependencies and fail npm release validation if packaged test cargo reappears, keeping published tarballs leaner without plugin-specific special cases. (#67275) Thanks @gumadeiras.",
+            "link": null,
+            "category": "ci",
+            "categoryLabel": "🔄 CI/CD",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Agent/context + 内存: trim default startup/skills prompt budgets, cap `memory_get` excerpts 通过 default 使用 explicit continuation metadata, 和 keep QMD reads aligned 使用 the same bounded excerpt contract so long sessions pull less context 通过 default 不适用 losing deterministic follow-up reads.",
+            "rawTitle": "Agents/context + Memory: trim default startup/skills prompt budgets, cap `memory_get` excerpts by default with explicit continuation metadata, and keep QMD reads aligned with the same bounded excerpt contract so long sessions pull less context by default without losing deterministic follow-up reads.",
+            "link": null,
+            "category": "ci",
+            "categoryLabel": "🔄 CI/CD",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          }
+        ]
+      },
+      "browser": {
+        "label": "🌐 浏览器支持",
+        "items": [
+          {
+            "title": "Agent/local 模型: 添加 experimental `Agent.defaults.experimental.localModelLean: true` to drop heavyweight default tools like `浏览器`, `cron`, 和 `message`, reducing prompt size 为了 weaker local-模型 setups 不适用 changing the normal 路径. (#66495) Thanks @ImLukeF.",
+            "rawTitle": "Agents/local models: add experimental `agents.defaults.experimental.localModelLean: true` to drop heavyweight default tools like `browser`, `cron`, and `message`, reducing prompt size for weaker local-model setups without changing the normal path. (#66495) Thanks @ImLukeF.",
+            "link": null,
+            "category": "browser",
+            "categoryLabel": "🌐 浏览器支持",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "网关/MCP协议 loopback: switch the `/MCP协议` bearer comparison 从 plain `!==` to constant-time `safeEqualSecret` (matching the convention every other 认证 surface 在 the codebase uses), 和 reject non-loopback 浏览器-origin requests via `checkBrowserOrigin` 之前 the 认证 gate runs. Loopback origins (`127.0.0.1:*`, `localhost:*`, same-origin) still go through, including the `localhost`↔`127.0.0.1` host mismatch that browsers flag as `Sec-Fetch-Site: cross-site`. (#66665) Thanks @eleqtrizit.",
+            "rawTitle": "Gateway/MCP loopback: switch the `/mcp` bearer comparison from plain `!==` to constant-time `safeEqualSecret` (matching the convention every other auth surface in the codebase uses), and reject non-loopback browser-origin requests via `checkBrowserOrigin` before the auth gate runs. Loopback origins (`127.0.0.1:*`, `localhost:*`, same-origin) still go through, including the `localhost`↔`127.0.0.1` host mismatch that browsers flag as `Sec-Fetch-Site: cross-site`. (#66665) Thanks @eleqtrizit.",
+            "link": null,
+            "category": "browser",
+            "categoryLabel": "🌐 浏览器支持",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          }
+        ]
+      },
+      "plugins": {
+        "label": "🧩 插件/技能",
+        "items": [
+          {
+            "title": "Packaging/插件: localize bundled 插件 runtime deps to their owning extensions, trim the published docs payload, 和 tighten install/package-manager guardrails so published builds stay leaner 和 core stops carrying extension-owned runtime baggage. (#67099) Thanks @vincentkoc.",
+            "rawTitle": "Packaging/plugins: localize bundled plugin runtime deps to their owning extensions, trim the published docs payload, and tighten install/package-manager guardrails so published builds stay leaner and core stops carrying extension-owned runtime baggage. (#67099) Thanks @vincentkoc.",
+            "link": null,
+            "category": "plugins",
+            "categoryLabel": "🧩 插件/技能",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Setup/providers: guard preferred-provider lookup 期间 setup so malformed 插件 metadata 使用 a missing provider id no longer crashes the wizard 使用 `Cannot read properties 的 undefined (reading 'trim')`. (#66649) Thanks @Tianworld.",
+            "rawTitle": "Setup/providers: guard preferred-provider lookup during setup so malformed plugin metadata with a missing provider id no longer crashes the wizard with `Cannot read properties of undefined (reading 'trim')`. (#66649) Thanks @Tianworld.",
+            "link": null,
+            "category": "plugins",
+            "categoryLabel": "🧩 插件/技能",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "网关/认证: 解决 the active 网关 bearer per-request 在 the HTTP server 和 the HTTP upgrade handler via `getResolvedAuth()`, mirroring the WebSocket 路径, so a secret rotated through `secrets.reload` 或 配置 hot-reload stops authenticating 在 `/v1/*`, `/tools/invoke`, 插件 HTTP routes, 和 the canvas upgrade 路径 immediately 而不是 remaining valid 在 HTTP until 网关 restart. (#66651) Thanks @mmaps.",
+            "rawTitle": "Gateway/auth: resolve the active gateway bearer per-request on the HTTP server and the HTTP upgrade handler via `getResolvedAuth()`, mirroring the WebSocket path, so a secret rotated through `secrets.reload` or config hot-reload stops authenticating on `/v1/*`, `/tools/invoke`, plugin HTTP routes, and the canvas upgrade path immediately instead of remaining valid on HTTP until gateway restart. (#66651) Thanks @mmaps.",
+            "link": null,
+            "category": "plugins",
+            "categoryLabel": "🧩 插件/技能",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Secrets/插件/status: align SecretRef inspect-vs-strict handling across 插件 preload, read-only status/Agent surfaces, 和 runtime 认证 paths so unresolved refs no longer 崩溃 read-only CLI flows while runtime-required non-env refs stay strict. (#66818) Thanks @joshavant.",
+            "rawTitle": "Secrets/plugins/status: align SecretRef inspect-vs-strict handling across plugin preload, read-only status/agents surfaces, and runtime auth paths so unresolved refs no longer crash read-only CLI flows while runtime-required non-env refs stay strict. (#66818) Thanks @joshavant.",
+            "link": null,
+            "category": "plugins",
+            "categoryLabel": "🧩 插件/技能",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "CLI/插件: 停止 `--dangerously-force-unsafe-install` 插件 installs 从 falling back to hook-pack installs 之后 安全 scan failures, while still preserving non-安全 fallback behavior 为了 real hook packs. (#58909) Thanks @hxy91819.",
+            "rawTitle": "CLI/plugins: stop `--dangerously-force-unsafe-install` plugin installs from falling back to hook-pack installs after security scan failures, while still preserving non-security fallback behavior for real hook packs. (#58909) Thanks @hxy91819.",
+            "link": null,
+            "category": "plugins",
+            "categoryLabel": "🧩 插件/技能",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          }
+        ]
+      },
+      "other": {
+        "label": "📦 其他",
+        "items": [
+          {
+            "title": "QA/Matrix: split Matrix live QA 进入 a source-linked `qa-matrix` runner 和 keep repo-private `qa-*` surfaces out 的 packaged 和 published builds. (#66723) Thanks @gumadeiras.",
+            "rawTitle": "QA/Matrix: split Matrix live QA into a source-linked `qa-matrix` runner and keep repo-private `qa-*` surfaces out of packaged and published builds. (#66723) Thanks @gumadeiras.",
+            "link": null,
+            "category": "other",
+            "categoryLabel": "📦 其他",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Docs/showcase: 添加 a scannable hero, complete section jump links, 和 a responsive video grid 为了 community examples. (#48493) Thanks @jchopard69.",
+            "rawTitle": "Docs/showcase: add a scannable hero, complete section jump links, and a responsive video grid for community examples. (#48493) Thanks @jchopard69.",
+            "link": null,
+            "category": "other",
+            "categoryLabel": "📦 其他",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Auto-reply/billing: classify pure billing cooldown fallback summaries 从 structured fallback reasons so users see billing guidance 而不是 the generic failure reply. (#66363) Thanks @Rohan5commit.",
+            "rawTitle": "Auto-reply/billing: classify pure billing cooldown fallback summaries from structured fallback reasons so users see billing guidance instead of the generic failure reply. (#66363) Thanks @Rohan5commit.",
+            "link": null,
+            "category": "other",
+            "categoryLabel": "📦 其他",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Auto-reply/media: 允许 workspace-rooted absolute media paths 在 auto-reply send flows so valid local media references no longer fail 路径 validation. (#66689)",
+            "rawTitle": "Auto-reply/media: allow workspace-rooted absolute media paths in auto-reply send flows so valid local media references no longer fail path validation. (#66689)",
+            "link": null,
+            "category": "other",
+            "categoryLabel": "📦 其他",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Claude CLI/sessions: classify `No conversation found 使用 session ID` as `session_expired` so expired CLI-backed conversations clear the stale binding 和 recover 在 the next turn. (#65028) thanks @Ivan-Fn.",
+            "rawTitle": "Claude CLI/sessions: classify `No conversation found with session ID` as `session_expired` so expired CLI-backed conversations clear the stale binding and recover on the next turn. (#65028) thanks @Ivan-Fn.",
+            "link": null,
+            "category": "other",
+            "categoryLabel": "📦 其他",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Docker/build: verify `@matrix-org/matrix-sdk-crypto-nodejs` native bindings 使用 `find` under `node_modules` 而不是 a hardcoded `.pnpm/...` 路径 so pnpm v10+ virtual-store layouts no longer fail the image build. (#67143) Thanks @ly85206559.",
+            "rawTitle": "Docker/build: verify `@matrix-org/matrix-sdk-crypto-nodejs` native bindings with `find` under `node_modules` instead of a hardcoded `.pnpm/...` path so pnpm v10+ virtual-store layouts no longer fail the image build. (#67143) Thanks @ly85206559.",
+            "link": null,
+            "category": "other",
+            "categoryLabel": "📦 其他",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          }
+        ]
+      },
+      "security": {
+        "label": "🔐 安全相关",
+        "items": [
+          {
+            "title": "安全/approvals: redact secrets 在 exec approval prompts so inline approval review can no longer leak credential material 在 rendered prompt content. (#61077, #64790)",
+            "rawTitle": "Security/approvals: redact secrets in exec approval prompts so inline approval review can no longer leak credential material in rendered prompt content. (#61077, #64790)",
+            "link": null,
+            "category": "security",
+            "categoryLabel": "🔐 安全相关",
+            "type": {
+              "type": "security",
+              "icon": "🔒",
+              "label": "安全"
+            }
+          },
+          {
+            "title": "CLI/更新: prune stale packaged `dist` chunks 之后 npm upgrades 和 keep downgrade/verify inventory checks compat-safe so global upgrades 停止 failing 在 stale chunk imports. (#66959) Thanks @obviyus.",
+            "rawTitle": "CLI/update: prune stale packaged `dist` chunks after npm upgrades and keep downgrade/verify inventory checks compat-safe so global upgrades stop failing on stale chunk imports. (#66959) Thanks @obviyus.",
+            "link": null,
+            "category": "security",
+            "categoryLabel": "🔐 安全相关",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Matrix/安全: normalize sandboxed profile avatar params, 保留 `mxc://` avatar URLs, 和 surface gmail watcher 停止 failures 期间 reload. (#64701) Thanks @slepybear.",
+            "rawTitle": "Matrix/security: normalize sandboxed profile avatar params, preserve `mxc://` avatar URLs, and surface gmail watcher stop failures during reload. (#64701) Thanks @slepybear.",
+            "link": null,
+            "category": "security",
+            "categoryLabel": "🔐 安全相关",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Matrix/commands: skip DM pairing-store reads 在 room traffic 现在 that room control-命令 authorization ignores pairing-store entries, keeping the room 路径 narrower 不适用 changing room 认证 behavior. (#67325) Thanks @gumadeiras.",
+            "rawTitle": "Matrix/commands: skip DM pairing-store reads on room traffic now that room control-command authorization ignores pairing-store entries, keeping the room path narrower without changing room auth behavior. (#67325) Thanks @gumadeiras.",
+            "link": null,
+            "category": "security",
+            "categoryLabel": "🔐 安全相关",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Matrix/安全: block DM pairing-store entries 从 authorizing room control commands. (#67294) Thanks @pgondhi987.",
+            "rawTitle": "Matrix/security: block DM pairing-store entries from authorizing room control commands. (#67294) Thanks @pgondhi987.",
+            "link": null,
+            "category": "security",
+            "categoryLabel": "🔐 安全相关",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Webchat/安全: reject remote-host `file://` URLs 在 the media embedding 路径. (#67293) Thanks @pgondhi987.",
+            "rawTitle": "Webchat/security: reject remote-host `file://` URLs in the media embedding path. (#67293) Thanks @pgondhi987.",
+            "link": null,
+            "category": "security",
+            "categoryLabel": "🔐 安全相关",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          }
+        ]
+      },
+      "core": {
+        "label": "⚙️ 核心系统",
+        "items": [
+          {
+            "title": "CLI/configure: re-read the persisted 配置 hash 之后 writes so 配置 updates 停止 failing 使用 stale-hash races. (#64188, #66528)",
+            "rawTitle": "CLI/configure: re-read the persisted config hash after writes so config updates stop failing with stale-hash races. (#64188, #66528)",
+            "link": null,
+            "category": "core",
+            "categoryLabel": "⚙️ 核心系统",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          }
+        ]
+      },
+      "channels": {
+        "label": "💬 消息渠道",
+        "items": [
+          {
+            "title": "Onboarding/CLI: 修复 channel-selection crashes 在 globally installed CLI setups 期间 onboarding. (#66736)",
+            "rawTitle": "Onboarding/CLI: fix channel-selection crashes on globally installed CLI setups during onboarding. (#66736)",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Cron/Agent: forward embedded-run 工具 policy 和 internal event params 进入 the attempt layer so `--tools` allowlists, cron-owned message-工具 suppression, explicit message targeting, 和 命令-路径 internal events all take effect at runtime 重新. (#62675) Thanks @hexsprite.",
+            "rawTitle": "Cron/agents: forward embedded-run tool policy and internal event params into the attempt layer so `--tools` allowlists, cron-owned message-tool suppression, explicit message targeting, and command-path internal events all take effect at runtime again. (#62675) Thanks @hexsprite.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Telegram/documents: drop leaked binary caption bytes 从 inbound Telegram text handling so document uploads like `.mobi` 或 `.epub` no longer explode prompt 令牌 counts. (#66663) Thanks @joelnishanth.",
+            "rawTitle": "Telegram/documents: drop leaked binary caption bytes from inbound Telegram text handling so document uploads like `.mobi` or `.epub` no longer explode prompt token counts. (#66663) Thanks @joelnishanth.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Onboarding/channels: normalize channel setup metadata 之前 discovery 和 validation so malformed 或 mixed-shape channel 插件 metadata no longer breaks setup 和 onboarding channel lists. (#66706) Thanks @darkamenosa.",
+            "rawTitle": "Onboarding/channels: normalize channel setup metadata before discovery and validation so malformed or mixed-shape channel plugin metadata no longer breaks setup and onboarding channel lists. (#66706) Thanks @darkamenosa.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Slack/native commands: 修复 选项 menus 为了 slash commands such as `/verbose` 当 Slack renders native buttons 通过 giving each button a unique action ID while still routing them through the shared `openclaw_cmdarg*` listener. Thanks @Wangmerlyn.",
+            "rawTitle": "Slack/native commands: fix option menus for slash commands such as `/verbose` when Slack renders native buttons by giving each button a unique action ID while still routing them through the shared `openclaw_cmdarg*` listener. Thanks @Wangmerlyn.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "飞书/Webhook: harden the Webhook transport 和 card-action replay guards to fail closed 在 missing `encryptKey` 和 blank callback tokens — refuse to start the Webhook transport 不适用 an `encryptKey`, reject unsigned requests 当 no 密钥 is present 而不是 accepting them, 和 drop blank card-action tokens 之前 the dedupe claim 和 dispatcher. Defense-在-depth over the already-closed monitor-account layer. (#66707) Thanks @eleqtrizit.",
+            "rawTitle": "Feishu/webhook: harden the webhook transport and card-action replay guards to fail closed on missing `encryptKey` and blank callback tokens — refuse to start the webhook transport without an `encryptKey`, reject unsigned requests when no key is present instead of accepting them, and drop blank card-action tokens before the dedupe claim and dispatcher. Defense-in-depth over the already-closed monitor-account layer. (#66707) Thanks @eleqtrizit.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Agent/fallback: 保留 the original prompt body 在 模型 fallback retries 使用 session history so the retrying 模型 keeps the active task 而不是 only seeing a generic continue message. (#66029) Thanks @WuKongAI-CMU.",
+            "rawTitle": "Agents/fallback: preserve the original prompt body on model fallback retries with session history so the retrying model keeps the active task instead of only seeing a generic continue message. (#66029) Thanks @WuKongAI-CMU.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Reply/secrets: 解决 active reply channel/account SecretRefs 之前 reply-run message-action discovery so channel 令牌 SecretRefs (为了 example Discord) do not degrade 进入 discovery-time unresolved-secret failures. (#66796) Thanks @joshavant.",
+            "rawTitle": "Reply/secrets: resolve active reply channel/account SecretRefs before reply-run message-action discovery so channel token SecretRefs (for example Discord) do not degrade into discovery-time unresolved-secret failures. (#66796) Thanks @joshavant.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Agent/Anthropic: ignore non-positive Anthropic Messages 令牌 overrides 和 fail locally 当 no positive 令牌 budget remains, so invalid `max_tokens` values no longer reach the provider API. (#66664) thanks @jalehman",
+            "rawTitle": "Agents/Anthropic: ignore non-positive Anthropic Messages token overrides and fail locally when no positive token budget remains, so invalid `max_tokens` values no longer reach the provider API. (#66664) thanks @jalehman",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "BlueBubbles/inbound: 添加 a persistent file-backed GUID dedupe so MessagePoller Webhook replays 之后 BB Server restart 或 reconnect no longer cause the Agent to re-reply to already-handled messages. (#19176, #12053, #66816) Thanks @omarshahine.",
+            "rawTitle": "BlueBubbles/inbound: add a persistent file-backed GUID dedupe so MessagePoller webhook replays after BB Server restart or reconnect no longer cause the agent to re-reply to already-handled messages. (#19176, #12053, #66816) Thanks @omarshahine.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Telegram/documents: sanitize binary reply context 和 ZIP-like archive extraction so `.epub` 和 `.mobi` uploads can no longer leak raw binary 进入 prompt context through reply metadata 或 archive-to-`text/plain` coercion. (#66877) Thanks @martinfrancois.",
+            "rawTitle": "Telegram/documents: sanitize binary reply context and ZIP-like archive extraction so `.epub` and `.mobi` uploads can no longer leak raw binary into prompt context through reply metadata or archive-to-`text/plain` coercion. (#66877) Thanks @martinfrancois.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Telegram/native commands: restore 插件-registry-backed auto defaults 为了 native commands 和 native skills so Telegram slash commands keep registering 当 `commands.native` 和 `commands.nativeSkills` stay 在 `auto`. (#66843) Thanks @kashevk0.",
+            "rawTitle": "Telegram/native commands: restore plugin-registry-backed auto defaults for native commands and native skills so Telegram slash commands keep registering when `commands.native` and `commands.nativeSkills` stay on `auto`. (#66843) Thanks @kashevk0.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "修复(bluebubbles): replay missed Webhook messages 之后 网关 restart via a persistent per-account cursor 和 `/API/v1/message/query?之后=<ts>` pass, so messages delivered while the 网关 was down no longer disappear. Uses the existing `processMessage` 路径 和 is deduped 通过 #66816's inbound GUID cache. (#66857, #66721) Thanks @omarshahine.",
+            "rawTitle": "fix(bluebubbles): replay missed webhook messages after gateway restart via a persistent per-account cursor and `/api/v1/message/query?after=<ts>` pass, so messages delivered while the gateway was down no longer disappear. Uses the existing `processMessage` path and is deduped by #66816's inbound GUID cache. (#66857, #66721) Thanks @omarshahine.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "fix",
+              "icon": "🐛",
+              "label": "修复"
+            }
+          },
+          {
+            "title": "Telegram/native commands: keep Telegram 命令-sync cache process-local so 网关 restarts re-register the menu 而不是 trusting stale 在-disk sync state 之后 Telegram cleared commands out-的-band. (#66730) Thanks @nightq.",
+            "rawTitle": "Telegram/native commands: keep Telegram command-sync cache process-local so gateway restarts re-register the menu instead of trusting stale on-disk sync state after Telegram cleared commands out-of-band. (#66730) Thanks @nightq.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "WhatsApp/Baileys media upload: harden encrypted upload handling so large outbound media sends 避免 buffer spikes 和 reliability regressions. (#65966) Thanks @frankekn.",
+            "rawTitle": "WhatsApp/Baileys media upload: harden encrypted upload handling so large outbound media sends avoid buffer spikes and reliability regressions. (#65966) Thanks @frankekn.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Context Engine: gracefully fall back to the legacy engine 当 a third-party context engine 插件 fails at resolution time (unregistered id, factory throw, 或 contract violation), preventing a full 网关 outage 在 every channel. (#66930) Thanks @openperf.",
+            "rawTitle": "Context Engine: gracefully fall back to the legacy engine when a third-party context engine plugin fails at resolution time (unregistered id, factory throw, or contract violation), preventing a full gateway outage on every channel. (#66930) Thanks @openperf.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Control 界面/chat: keep optimistic user message cards visible 期间 active sends 通过 deferring same-session history reloads until the active run ends, including aborted 和 errored runs. (#66997) Thanks @scotthuang 和 @vincentkoc.",
+            "rawTitle": "Control UI/chat: keep optimistic user message cards visible during active sends by deferring same-session history reloads until the active run ends, including aborted and errored runs. (#66997) Thanks @scotthuang and @vincentkoc.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Media/Slack: 允许 host-local CSV 和 Markdown uploads only 当 the fallback buffer actually decodes as text, so real plain-text files work 不适用 letting opaque non-text blobs renamed to `.csv` 或 `.md` slip past the host-read guard. (#67047) Thanks @Unayung.",
+            "rawTitle": "Media/Slack: allow host-local CSV and Markdown uploads only when the fallback buffer actually decodes as text, so real plain-text files work without letting opaque non-text blobs renamed to `.csv` or `.md` slip past the host-read guard. (#67047) Thanks @Unayung.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Matrix/E2EE: keep startup bootstrap conservative 为了 passwordless 令牌-认证 bots, still attempt the guarded repair pass 不适用 requiring `channels.matrix.password`, 和 document the remaining password-UIA limitation. (#66228) Thanks @SARAMALI15792.",
+            "rawTitle": "Matrix/E2EE: keep startup bootstrap conservative for passwordless token-auth bots, still attempt the guarded repair pass without requiring `channels.matrix.password`, and document the remaining password-UIA limitation. (#66228) Thanks @SARAMALI15792.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Cron/announce delivery: suppress mixed-content isolated cron announce replies that end 使用 `NO_REPLY` so trailing silent sentinels no longer leak summary text to the target channel. (#65004) Thanks @neo1027144-creator.",
+            "rawTitle": "Cron/announce delivery: suppress mixed-content isolated cron announce replies that end with `NO_REPLY` so trailing silent sentinels no longer leak summary text to the target channel. (#65004) Thanks @neo1027144-creator.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "插件/bundled channels: partition bundled channel lazy caches 通过 active bundled root so `OPENCLAW_BUNDLED_PLUGINS_DIR` flips 停止 reusing stale 插件, setup, secrets, 和 runtime state. (#67200) Thanks @gumadeiras.",
+            "rawTitle": "Plugins/bundled channels: partition bundled channel lazy caches by active bundled root so `OPENCLAW_BUNDLED_PLUGINS_DIR` flips stop reusing stale plugin, setup, secrets, and runtime state. (#67200) Thanks @gumadeiras.",
+            "link": null,
+            "category": "channels",
+            "categoryLabel": "💬 消息渠道",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          }
+        ]
+      },
+      "performance": {
+        "label": "🚀 性能优化",
+        "items": [
+          {
+            "title": "Video generation/live tests: bound provider polling 为了 live video smoke, default to the fast non-FAL text-to-video 路径, 和 use a one-second lobster prompt so release validation no longer waits indefinitely 在 slow provider queues.",
+            "rawTitle": "Video generation/live tests: bound provider polling for live video smoke, default to the fast non-FAL text-to-video path, and use a one-second lobster prompt so release validation no longer waits indefinitely on slow provider queues.",
+            "link": null,
+            "category": "performance",
+            "categoryLabel": "🚀 性能优化",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          }
+        ]
+      },
+      "agents": {
+        "label": "🤖 Agent系统",
+        "items": [
+          {
+            "title": "Agent/workspace files: route `Agent.files.get`, `Agent.files.set`, 和 workspace listing through the shared `fs-safe` helpers (`openFileWithinRoot`/`readFileWithinRoot`/`writeFileWithinRoot`), reject symlink aliases 为了 allowlisted Agent files, 和 have `fs-safe` 解决 opened-file real paths 从 the file descriptor 之前 falling back to 路径-based `realpath` so a symlink swap 之间 `open` 和 `realpath` can no longer redirect the validated 路径 off the intended inode. (#66636) Thanks @eleqtrizit.",
+            "rawTitle": "Agents/workspace files: route `agents.files.get`, `agents.files.set`, and workspace listing through the shared `fs-safe` helpers (`openFileWithinRoot`/`readFileWithinRoot`/`writeFileWithinRoot`), reject symlink aliases for allowlisted agent files, and have `fs-safe` resolve opened-file real paths from the file descriptor before falling back to path-based `realpath` so a symlink swap between `open` and `realpath` can no longer redirect the validated path off the intended inode. (#66636) Thanks @eleqtrizit.",
+            "link": null,
+            "category": "agents",
+            "categoryLabel": "🤖 Agent系统",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "QQBot/cron: guard against undefined `event.content` 在 `parseFaceTags` 和 `filterInternalMarkers` so cron-triggered Agent turns 使用 no content payload no longer 崩溃 使用 `TypeError: Cannot read properties 的 undefined (reading 'startsWith')`. (#66302) Thanks @xinmotlanthua.",
+            "rawTitle": "QQBot/cron: guard against undefined `event.content` in `parseFaceTags` and `filterInternalMarkers` so cron-triggered agent turns with no content payload no longer crash with `TypeError: Cannot read properties of undefined (reading 'startsWith')`. (#66302) Thanks @xinmotlanthua.",
+            "link": null,
+            "category": "agents",
+            "categoryLabel": "🤖 Agent系统",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          }
+        ]
+      },
+      "voice": {
+        "label": "📞 语音通话",
+        "items": [
+          {
+            "title": "内存/dreaming: 停止 ordinary transcripts that merely quote the dream-diary prompt 从 being classified as internal dreaming runs 和 静默地 dropped 从 session recall ingestion. (#66852) Thanks @gumadeiras.",
+            "rawTitle": "Memory/dreaming: stop ordinary transcripts that merely quote the dream-diary prompt from being classified as internal dreaming runs and silently dropped from session recall ingestion. (#66852) Thanks @gumadeiras.",
+            "link": null,
+            "category": "voice",
+            "categoryLabel": "📞 语音通话",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "网关/安全: enforce `localRoots` containment 在 the webchat audio embedding 路径. (#67298) Thanks @pgondhi987.",
+            "rawTitle": "Gateway/security: enforce `localRoots` containment on the webchat audio embedding path. (#67298) Thanks @pgondhi987.",
+            "link": null,
+            "category": "voice",
+            "categoryLabel": "📞 语音通话",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Dreaming/内存-core: use the ingestion day, not the source file day, 为了 daily recall dedupe so repeat sweeps 的 the same daily note can increment `dailyCount` across days 而不是 stalling at `1`. (#67091) Thanks @Bartok9.",
+            "rawTitle": "Dreaming/memory-core: use the ingestion day, not the source file day, for daily recall dedupe so repeat sweeps of the same daily note can increment `dailyCount` across days instead of stalling at `1`. (#67091) Thanks @Bartok9.",
+            "link": null,
+            "category": "voice",
+            "categoryLabel": "📞 语音通话",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          }
+        ]
+      },
+      "api": {
+        "label": "🔌 API/接口",
+        "items": [
+          {
+            "title": "Ollama/onboarding: split setup 进入 `Cloud + Local`, `Cloud only`, 和 `Local only`, 支持 direct `OLLAMA_API_KEY` cloud setup 不适用 a local daemon, 和 keep Ollama web search 在 the local-host 路径. (#67005) Thanks @obviyus.",
+            "rawTitle": "Ollama/onboarding: split setup into `Cloud + Local`, `Cloud only`, and `Local only`, support direct `OLLAMA_API_KEY` cloud setup without a local daemon, and keep Ollama web search on the local-host path. (#67005) Thanks @obviyus.",
+            "link": null,
+            "category": "api",
+            "categoryLabel": "🔌 API/接口",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
     "id": 308765455,
     "tagName": "v2026.4.14",
     "name": "openclaw 2026.4.14",
@@ -11584,236 +13131,6 @@
             "link": null,
             "category": "plugins",
             "categoryLabel": "🧩 插件/技能",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          }
-        ]
-      }
-    }
-  },
-  {
-    "id": 306413127,
-    "tagName": "v2026.4.8",
-    "name": "openclaw 2026.4.8",
-    "htmlUrl": "https://github.com/openclaw/openclaw/releases/tag/v2026.4.8",
-    "publishedAt": "2026-04-08T05:59:44Z",
-    "author": {
-      "name": "steipete",
-      "avatar": "https://avatars.githubusercontent.com/u/58493?v=4",
-      "url": "https://github.com/steipete"
-    },
-    "isPrerelease": false,
-    "isDraft": false,
-    "changes": [
-      {
-        "title": "Telegram/setup: load setup 和 secret contracts through packaged top-level sidecars so installed npm builds no longer try to import missing `dist/extensions/Telegram/src/*` files 期间 网关 startup.",
-        "rawTitle": "Telegram/setup: load setup and secret contracts through packaged top-level sidecars so installed npm builds no longer try to import missing `dist/extensions/telegram/src/*` files during gateway startup.",
-        "link": null,
-        "category": "channels",
-        "categoryLabel": "💬 消息渠道",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "Bundled channels/setup: load shared secret contracts through packaged top-level sidecars across BlueBubbles, 飞书, Google Chat, IRC, Matrix, Mattermost, Microsoft Teams, Nextcloud Talk, Slack, 和 Zalo so installed npm builds no longer rely 在 missing `dist/extensions/*/src/*` files 期间 网关 startup.",
-        "rawTitle": "Bundled channels/setup: load shared secret contracts through packaged top-level sidecars across BlueBubbles, Feishu, Google Chat, IRC, Matrix, Mattermost, Microsoft Teams, Nextcloud Talk, Slack, and Zalo so installed npm builds no longer rely on missing `dist/extensions/*/src/*` files during gateway startup.",
-        "link": null,
-        "category": "channels",
-        "categoryLabel": "💬 消息渠道",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "Bundled 插件: align packaged 插件 compatibility metadata 使用 the release version so bundled channels 和 providers load 在 OpenClaw 2026.4.8.",
-        "rawTitle": "Bundled plugins: align packaged plugin compatibility metadata with the release version so bundled channels and providers load on OpenClaw 2026.4.8.",
-        "link": null,
-        "category": "channels",
-        "categoryLabel": "💬 消息渠道",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "Agent/progress: keep `update_plan` available 为了 OpenAI-family runs while returning compact success payloads 和 allowing `tools.experimental.planTool=false` to opt out.",
-        "rawTitle": "Agents/progress: keep `update_plan` available for OpenAI-family runs while returning compact success payloads and allowing `tools.experimental.planTool=false` to opt out.",
-        "link": null,
-        "category": "models",
-        "categoryLabel": "🤖 模型集成",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "Agent/exec: keep `/exec` current-default reporting aligned 使用 real runtime behavior so `host=auto` sessions surface the correct host-aware fallback policy (`full/off` 在 网关 或 node, `deny/off` 在 sandbox) 而不是 stale stricter defaults.",
-        "rawTitle": "Agents/exec: keep `/exec` current-default reporting aligned with real runtime behavior so `host=auto` sessions surface the correct host-aware fallback policy (`full/off` on gateway or node, `deny/off` on sandbox) instead of stale stricter defaults.",
-        "link": null,
-        "category": "agents",
-        "categoryLabel": "🤖 Agent系统",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "Slack: honor ambient HTTP(S) 代理 settings 为了 Socket Mode WebSocket connections, including NO_PROXY exclusions, so 代理-only deployments can connect 不适用 a monkey patch. (#62878) Thanks @mjamiv.",
-        "rawTitle": "Slack: honor ambient HTTP(S) proxy settings for Socket Mode WebSocket connections, including NO_PROXY exclusions, so proxy-only deployments can connect without a monkey patch. (#62878) Thanks @mjamiv.",
-        "link": null,
-        "category": "channels",
-        "categoryLabel": "💬 消息渠道",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "Slack/actions: pass the already resolved read 令牌 进入 `downloadFile` so SecretRef-backed bot tokens no longer fail 之后 a raw 配置 re-read. (#62097) Thanks @martingarramon.",
-        "rawTitle": "Slack/actions: pass the already resolved read token into `downloadFile` so SecretRef-backed bot tokens no longer fail after a raw config re-read. (#62097) Thanks @martingarramon.",
-        "link": null,
-        "category": "channels",
-        "categoryLabel": "💬 消息渠道",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "Network/fetch guard: skip target DNS pinning 当 trusted env-代理 mode is active so 代理-only sandboxes can let the trusted 代理 解决 outbound hosts. (#59007) Thanks @cluster2600.",
-        "rawTitle": "Network/fetch guard: skip target DNS pinning when trusted env-proxy mode is active so proxy-only sandboxes can let the trusted proxy resolve outbound hosts. (#59007) Thanks @cluster2600.",
-        "link": null,
-        "category": "network",
-        "categoryLabel": "🌍 网络/代理",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      }
-    ],
-    "changesByCategory": {
-      "channels": {
-        "label": "💬 消息渠道",
-        "items": [
-          {
-            "title": "Telegram/setup: load setup 和 secret contracts through packaged top-level sidecars so installed npm builds no longer try to import missing `dist/extensions/Telegram/src/*` files 期间 网关 startup.",
-            "rawTitle": "Telegram/setup: load setup and secret contracts through packaged top-level sidecars so installed npm builds no longer try to import missing `dist/extensions/telegram/src/*` files during gateway startup.",
-            "link": null,
-            "category": "channels",
-            "categoryLabel": "💬 消息渠道",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "Bundled channels/setup: load shared secret contracts through packaged top-level sidecars across BlueBubbles, 飞书, Google Chat, IRC, Matrix, Mattermost, Microsoft Teams, Nextcloud Talk, Slack, 和 Zalo so installed npm builds no longer rely 在 missing `dist/extensions/*/src/*` files 期间 网关 startup.",
-            "rawTitle": "Bundled channels/setup: load shared secret contracts through packaged top-level sidecars across BlueBubbles, Feishu, Google Chat, IRC, Matrix, Mattermost, Microsoft Teams, Nextcloud Talk, Slack, and Zalo so installed npm builds no longer rely on missing `dist/extensions/*/src/*` files during gateway startup.",
-            "link": null,
-            "category": "channels",
-            "categoryLabel": "💬 消息渠道",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "Bundled 插件: align packaged 插件 compatibility metadata 使用 the release version so bundled channels 和 providers load 在 OpenClaw 2026.4.8.",
-            "rawTitle": "Bundled plugins: align packaged plugin compatibility metadata with the release version so bundled channels and providers load on OpenClaw 2026.4.8.",
-            "link": null,
-            "category": "channels",
-            "categoryLabel": "💬 消息渠道",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "Slack: honor ambient HTTP(S) 代理 settings 为了 Socket Mode WebSocket connections, including NO_PROXY exclusions, so 代理-only deployments can connect 不适用 a monkey patch. (#62878) Thanks @mjamiv.",
-            "rawTitle": "Slack: honor ambient HTTP(S) proxy settings for Socket Mode WebSocket connections, including NO_PROXY exclusions, so proxy-only deployments can connect without a monkey patch. (#62878) Thanks @mjamiv.",
-            "link": null,
-            "category": "channels",
-            "categoryLabel": "💬 消息渠道",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "Slack/actions: pass the already resolved read 令牌 进入 `downloadFile` so SecretRef-backed bot tokens no longer fail 之后 a raw 配置 re-read. (#62097) Thanks @martingarramon.",
-            "rawTitle": "Slack/actions: pass the already resolved read token into `downloadFile` so SecretRef-backed bot tokens no longer fail after a raw config re-read. (#62097) Thanks @martingarramon.",
-            "link": null,
-            "category": "channels",
-            "categoryLabel": "💬 消息渠道",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          }
-        ]
-      },
-      "models": {
-        "label": "🤖 模型集成",
-        "items": [
-          {
-            "title": "Agent/progress: keep `update_plan` available 为了 OpenAI-family runs while returning compact success payloads 和 allowing `tools.experimental.planTool=false` to opt out.",
-            "rawTitle": "Agents/progress: keep `update_plan` available for OpenAI-family runs while returning compact success payloads and allowing `tools.experimental.planTool=false` to opt out.",
-            "link": null,
-            "category": "models",
-            "categoryLabel": "🤖 模型集成",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          }
-        ]
-      },
-      "agents": {
-        "label": "🤖 Agent系统",
-        "items": [
-          {
-            "title": "Agent/exec: keep `/exec` current-default reporting aligned 使用 real runtime behavior so `host=auto` sessions surface the correct host-aware fallback policy (`full/off` 在 网关 或 node, `deny/off` 在 sandbox) 而不是 stale stricter defaults.",
-            "rawTitle": "Agents/exec: keep `/exec` current-default reporting aligned with real runtime behavior so `host=auto` sessions surface the correct host-aware fallback policy (`full/off` on gateway or node, `deny/off` on sandbox) instead of stale stricter defaults.",
-            "link": null,
-            "category": "agents",
-            "categoryLabel": "🤖 Agent系统",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          }
-        ]
-      },
-      "network": {
-        "label": "🌍 网络/代理",
-        "items": [
-          {
-            "title": "Network/fetch guard: skip target DNS pinning 当 trusted env-代理 mode is active so 代理-only sandboxes can let the trusted 代理 解决 outbound hosts. (#59007) Thanks @cluster2600.",
-            "rawTitle": "Network/fetch guard: skip target DNS pinning when trusted env-proxy mode is active so proxy-only sandboxes can let the trusted proxy resolve outbound hosts. (#59007) Thanks @cluster2600.",
-            "link": null,
-            "category": "network",
-            "categoryLabel": "🌍 网络/代理",
             "type": {
               "type": "other",
               "icon": "📝",
