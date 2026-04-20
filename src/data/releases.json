@@ -1,5 +1,134 @@
 [
   {
+    "id": 310817241,
+    "tagName": "v2026.4.19-beta.2",
+    "name": "openclaw 2026.4.19-beta.2",
+    "htmlUrl": "https://github.com/openclaw/openclaw/releases/tag/v2026.4.19-beta.2",
+    "publishedAt": "2026-04-19T05:55:49Z",
+    "author": {
+      "name": "steipete",
+      "avatar": "https://avatars.githubusercontent.com/u/58493?v=4",
+      "url": "https://github.com/steipete"
+    },
+    "isPrerelease": true,
+    "isDraft": false,
+    "changes": [
+      {
+        "title": "Agent/OpenAI-completions: always send `stream_options.include_usage` 在 streaming requests, so local 和 custom OpenAI-compatible backends report real context usage 而不是 showing 0%. (#68746) Thanks @kagura-Agent.",
+        "rawTitle": "Agents/openai-completions: always send `stream_options.include_usage` on streaming requests, so local and custom OpenAI-compatible backends report real context usage instead of showing 0%. (#68746) Thanks @kagura-agent.",
+        "link": null,
+        "category": "models",
+        "categoryLabel": "🤖 模型集成",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Agent/nested lanes: scope nested Agent work per target session so a long-running nested run 在 one session no longer head-的-line blocks unrelated sessions across the 网关. (#67785) Thanks @stainlu.",
+        "rawTitle": "Agents/nested lanes: scope nested agent work per target session so a long-running nested run on one session no longer head-of-line blocks unrelated sessions across the gateway. (#67785) Thanks @stainlu.",
+        "link": null,
+        "category": "agents",
+        "categoryLabel": "🤖 Agent系统",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Agent/status: 保留 carried-forward session 令牌 totals 为了 providers that omit usage metadata, so `/status` 和 `openclaw sessions` keep showing the last known context usage 而不是 dropping back to unknown/0%. (#67695) Thanks @stainlu.",
+        "rawTitle": "Agents/status: preserve carried-forward session token totals for providers that omit usage metadata, so `/status` and `openclaw sessions` keep showing the last known context usage instead of dropping back to unknown/0%. (#67695) Thanks @stainlu.",
+        "link": null,
+        "category": "models",
+        "categoryLabel": "🤖 模型集成",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      },
+      {
+        "title": "Install/更新: keep legacy 更新 verification compatible 使用 the QA Lab runtime shim, so updating older global installs to beta no longer fails 之后 npm installs the package 成功地.",
+        "rawTitle": "Install/update: keep legacy update verification compatible with the QA Lab runtime shim, so updating older global installs to beta no longer fails after npm installs the package successfully.",
+        "link": null,
+        "category": "plugins",
+        "categoryLabel": "🧩 插件/技能",
+        "type": {
+          "type": "other",
+          "icon": "📝",
+          "label": "其他"
+        }
+      }
+    ],
+    "changesByCategory": {
+      "models": {
+        "label": "🤖 模型集成",
+        "items": [
+          {
+            "title": "Agent/OpenAI-completions: always send `stream_options.include_usage` 在 streaming requests, so local 和 custom OpenAI-compatible backends report real context usage 而不是 showing 0%. (#68746) Thanks @kagura-Agent.",
+            "rawTitle": "Agents/openai-completions: always send `stream_options.include_usage` on streaming requests, so local and custom OpenAI-compatible backends report real context usage instead of showing 0%. (#68746) Thanks @kagura-agent.",
+            "link": null,
+            "category": "models",
+            "categoryLabel": "🤖 模型集成",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          },
+          {
+            "title": "Agent/status: 保留 carried-forward session 令牌 totals 为了 providers that omit usage metadata, so `/status` 和 `openclaw sessions` keep showing the last known context usage 而不是 dropping back to unknown/0%. (#67695) Thanks @stainlu.",
+            "rawTitle": "Agents/status: preserve carried-forward session token totals for providers that omit usage metadata, so `/status` and `openclaw sessions` keep showing the last known context usage instead of dropping back to unknown/0%. (#67695) Thanks @stainlu.",
+            "link": null,
+            "category": "models",
+            "categoryLabel": "🤖 模型集成",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          }
+        ]
+      },
+      "agents": {
+        "label": "🤖 Agent系统",
+        "items": [
+          {
+            "title": "Agent/nested lanes: scope nested Agent work per target session so a long-running nested run 在 one session no longer head-的-line blocks unrelated sessions across the 网关. (#67785) Thanks @stainlu.",
+            "rawTitle": "Agents/nested lanes: scope nested agent work per target session so a long-running nested run on one session no longer head-of-line blocks unrelated sessions across the gateway. (#67785) Thanks @stainlu.",
+            "link": null,
+            "category": "agents",
+            "categoryLabel": "🤖 Agent系统",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          }
+        ]
+      },
+      "plugins": {
+        "label": "🧩 插件/技能",
+        "items": [
+          {
+            "title": "Install/更新: keep legacy 更新 verification compatible 使用 the QA Lab runtime shim, so updating older global installs to beta no longer fails 之后 npm installs the package 成功地.",
+            "rawTitle": "Install/update: keep legacy update verification compatible with the QA Lab runtime shim, so updating older global installs to beta no longer fails after npm installs the package successfully.",
+            "link": null,
+            "category": "plugins",
+            "categoryLabel": "🧩 插件/技能",
+            "type": {
+              "type": "other",
+              "icon": "📝",
+              "label": "其他"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
     "id": 310795184,
     "tagName": "v2026.4.19-beta.1",
     "name": "openclaw 2026.4.19-beta.1",
@@ -10360,568 +10489,6 @@
           {
             "title": "Agent/failover: scope assistant-side fallback classification 和 surfaced provider errors to the current attempt 而不是 stale session history, so cross-provider fallback runs 停止 inheriting the previous provider's failure. (#62907) Thanks @stainlu.",
             "rawTitle": "Agents/failover: scope assistant-side fallback classification and surfaced provider errors to the current attempt instead of stale session history, so cross-provider fallback runs stop inheriting the previous provider's failure. (#62907) Thanks @stainlu.",
-            "link": null,
-            "category": "agents",
-            "categoryLabel": "🤖 Agent系统",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          }
-        ]
-      },
-      "core": {
-        "label": "⚙️ 核心系统",
-        "items": [
-          {
-            "title": "配置: include `asyncCompletion` 在 the generated zod schema so documented async completion 配置 no longer fails 使用 an unrecognized-密钥 错误. (#63618)",
-            "rawTitle": "Config: include `asyncCompletion` in the generated zod schema so documented async completion config no longer fails with an unrecognized-key error. (#63618)",
-            "link": null,
-            "category": "core",
-            "categoryLabel": "⚙️ 核心系统",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          }
-        ]
-      },
-      "api": {
-        "label": "🔌 API/接口",
-        "items": [
-          {
-            "title": "Google/Veo: 停止 sending the unsupported `numberOfVideos` request field so Gemini Developer API Veo runs do not fail 之前 OpenClaw can complete the intended Google video generation 路径. (#64723) Thanks @velvet-shark.",
-            "rawTitle": "Google/Veo: stop sending the unsupported `numberOfVideos` request field so Gemini Developer API Veo runs do not fail before OpenClaw can complete the intended Google video generation path. (#64723) Thanks @velvet-shark.",
-            "link": null,
-            "category": "api",
-            "categoryLabel": "🔌 API/接口",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          }
-        ]
-      }
-    }
-  },
-  {
-    "id": 307872395,
-    "tagName": "v2026.4.11-beta.1",
-    "name": "openclaw 2026.4.11-beta.1",
-    "htmlUrl": "https://github.com/openclaw/openclaw/releases/tag/v2026.4.11-beta.1",
-    "publishedAt": "2026-04-11T15:15:03Z",
-    "author": {
-      "name": "steipete",
-      "avatar": "https://avatars.githubusercontent.com/u/58493?v=4",
-      "url": "https://github.com/steipete"
-    },
-    "isPrerelease": true,
-    "isDraft": false,
-    "changes": [
-      {
-        "title": "Dreaming/内存-wiki: 添加 ChatGPT import ingestion plus new `Imported Insights` 和 `内存 Palace` diary subtabs so Dreaming can inspect imported source chats, compiled wiki pages, 和 full source pages directly 从 the 界面. (#64505)",
-        "rawTitle": "Dreaming/memory-wiki: add ChatGPT import ingestion plus new `Imported Insights` and `Memory Palace` diary subtabs so Dreaming can inspect imported source chats, compiled wiki pages, and full source pages directly from the UI. (#64505)",
-        "link": null,
-        "category": "data",
-        "categoryLabel": "💾 数据/缓存",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "Control 界面/webchat: render assistant media/reply/语音 directives as structured chat bubbles, 添加 the `[embed ...]` rich output tag, 和 gate external embed URLs behind 配置. (#64104)",
-        "rawTitle": "Control UI/webchat: render assistant media/reply/voice directives as structured chat bubbles, add the `[embed ...]` rich output tag, and gate external embed URLs behind config. (#64104)",
-        "link": null,
-        "category": "voice",
-        "categoryLabel": "📞 语音通话",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "Tools/video_generate: 添加 URL-only generated asset delivery, typed `providerOptions`, reference audio inputs, per-asset role hints, `adaptive` aspect-ratio 支持, 和 a higher image-input cap so video providers can expose richer generation modes 不适用 forcing large files 进入 内存. (#61987, #61988) Thanks @xieyongliang.",
-        "rawTitle": "Tools/video_generate: add URL-only generated asset delivery, typed `providerOptions`, reference audio inputs, per-asset role hints, `adaptive` aspect-ratio support, and a higher image-input cap so video providers can expose richer generation modes without forcing large files into memory. (#61987, #61988) Thanks @xieyongliang.",
-        "link": null,
-        "category": "ci",
-        "categoryLabel": "🔄 CI/CD",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "飞书: 改进 document comment sessions 使用 richer context parsing, comment reactions, 和 typing feedback so document-thread conversations behave more like chat conversations. (#63785)",
-        "rawTitle": "Feishu: improve document comment sessions with richer context parsing, comment reactions, and typing feedback so document-thread conversations behave more like chat conversations. (#63785)",
-        "link": null,
-        "category": "channels",
-        "categoryLabel": "💬 消息渠道",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "Microsoft Teams: 添加 reaction 支持, reaction listing, Graph pagination, 和 delegated OAuth认证 setup 为了 sending reactions while preserving application-认证 read paths. (#51646)",
-        "rawTitle": "Microsoft Teams: add reaction support, reaction listing, Graph pagination, and delegated OAuth setup for sending reactions while preserving application-auth read paths. (#51646)",
-        "link": null,
-        "category": "ci",
-        "categoryLabel": "🔄 CI/CD",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "插件: 允许 插件 manifests to declare activation 和 setup descriptors so 插件 setup flows can describe required 认证, pairing, 和 configuration steps 不适用 hardcoded core special cases. (#64780)",
-        "rawTitle": "Plugins: allow plugin manifests to declare activation and setup descriptors so plugin setup flows can describe required auth, pairing, and configuration steps without hardcoded core special cases. (#64780)",
-        "link": null,
-        "category": "ci",
-        "categoryLabel": "🔄 CI/CD",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "Ollama: cache `/API/show` context-window 和 capability metadata 期间 模型 discovery so repeated picker refreshes 停止 refetching unchanged 模型, while still retrying 之后 empty responses 和 invalidating 在 digest changes. (#64753) Thanks @ImLukeF.",
-        "rawTitle": "Ollama: cache `/api/show` context-window and capability metadata during model discovery so repeated picker refreshes stop refetching unchanged models, while still retrying after empty responses and invalidating on digest changes. (#64753) Thanks @ImLukeF.",
-        "link": null,
-        "category": "models",
-        "categoryLabel": "🤖 模型集成",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "模型/providers: surface how configured OpenAI-compatible endpoints are classified 在 embedded-Agent debug logs, so local 和 代理 routing issues are easier to diagnose. (#64754) Thanks @ImLukeF.",
-        "rawTitle": "Models/providers: surface how configured OpenAI-compatible endpoints are classified in embedded-agent debug logs, so local and proxy routing issues are easier to diagnose. (#64754) Thanks @ImLukeF.",
-        "link": null,
-        "category": "models",
-        "categoryLabel": "🤖 模型集成",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "QA/parity: 添加 the GPT-5.4 vs Opus 4.6 agentic parity report gate 使用 shared scenario coverage checks, stricter evidence heuristics, 和 skipped-scenario accounting 为了 maintainer review. (#64441) Thanks @100yenadmin.",
-        "rawTitle": "QA/parity: add the GPT-5.4 vs Opus 4.6 agentic parity report gate with shared scenario coverage checks, stricter evidence heuristics, and skipped-scenario accounting for maintainer review. (#64441) Thanks @100yenadmin.",
-        "link": null,
-        "category": "agents",
-        "categoryLabel": "🤖 Agent系统",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "OpenAI/Codex OAuth认证: 停止 rewriting the upstream authorize URL scopes so new Codex sign-ins do not fail 使用 `invalid_scope` 之前 returning an authorization code. (#64713) Thanks @fuller-stack-dev.",
-        "rawTitle": "OpenAI/Codex OAuth: stop rewriting the upstream authorize URL scopes so new Codex sign-ins do not fail with `invalid_scope` before returning an authorization code. (#64713) Thanks @fuller-stack-dev.",
-        "link": null,
-        "category": "models",
-        "categoryLabel": "🤖 模型集成",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "Audio transcription: 禁用 pinned DNS only 为了 OpenAI-compatible multipart requests, while still validating hostnames, so OpenAI, Groq, 和 Mistral transcription works 重新 不适用 weakening other request paths. (#64766) Thanks @GodsBoy.",
-        "rawTitle": "Audio transcription: disable pinned DNS only for OpenAI-compatible multipart requests, while still validating hostnames, so OpenAI, Groq, and Mistral transcription works again without weakening other request paths. (#64766) Thanks @GodsBoy.",
-        "link": null,
-        "category": "models",
-        "categoryLabel": "🤖 模型集成",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "macOS/Talk Mode: 之后 granting microphone permission 在 first 启用, continue starting Talk Mode 而不是 requiring a second toggle. (#62459) Thanks @ggarber.",
-        "rawTitle": "macOS/Talk Mode: after granting microphone permission on first enable, continue starting Talk Mode instead of requiring a second toggle. (#62459) Thanks @ggarber.",
-        "link": null,
-        "category": "voice",
-        "categoryLabel": "📞 语音通话",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "Control 界面/webchat: persist Agent-run TTS audio replies 进入 webchat history 和 保留 interleaved 工具 card pairing so generated audio 和 mixed 工具 output stay attached to the right messages. (#63514) Thanks @bittoby.",
-        "rawTitle": "Control UI/webchat: persist agent-run TTS audio replies into webchat history and preserve interleaved tool card pairing so generated audio and mixed tool output stay attached to the right messages. (#63514) Thanks @bittoby.",
-        "link": null,
-        "category": "channels",
-        "categoryLabel": "💬 消息渠道",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "WhatsApp: honor the configured default account 当 the active listener helper is used 不适用 an explicit account id, so named default accounts do not get registered under `default`. (#53918) Thanks @yhyatt.",
-        "rawTitle": "WhatsApp: honor the configured default account when the active listener helper is used without an explicit account id, so named default accounts do not get registered under `default`. (#53918) Thanks @yhyatt.",
-        "link": null,
-        "category": "channels",
-        "categoryLabel": "💬 消息渠道",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "ACP/Agent: suppress commentary-phase child assistant relay text 在 ACP parent stream updates, so spawned child runs 停止 leaking internal progress chatter 进入 the parent session. Thanks @vincentkoc.",
-        "rawTitle": "ACP/agents: suppress commentary-phase child assistant relay text in ACP parent stream updates, so spawned child runs stop leaking internal progress chatter into the parent session. Thanks @vincentkoc.",
-        "link": null,
-        "category": "agents",
-        "categoryLabel": "🤖 Agent系统",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "Agent/timeouts: honor explicit run timeouts 在 the LLM idle watchdog 和 align default 超时 配置 so slow 模型 can keep working until the configured limit 而不是 using the wrong idle window.",
-        "rawTitle": "Agents/timeouts: honor explicit run timeouts in the LLM idle watchdog and align default timeout config so slow models can keep working until the configured limit instead of using the wrong idle window.",
-        "link": null,
-        "category": "ci",
-        "categoryLabel": "🔄 CI/CD",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "配置: include `asyncCompletion` 在 the generated zod schema so documented async completion 配置 no longer fails 使用 an unrecognized-密钥 错误. (#63618)",
-        "rawTitle": "Config: include `asyncCompletion` in the generated zod schema so documented async completion config no longer fails with an unrecognized-key error. (#63618)",
-        "link": null,
-        "category": "core",
-        "categoryLabel": "⚙️ 核心系统",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "Google/Veo: 停止 sending the unsupported `numberOfVideos` request field so Gemini Developer API Veo runs do not fail 之前 OpenClaw can complete the intended Google video generation 路径. (#64723) Thanks @velvet-shark.",
-        "rawTitle": "Google/Veo: stop sending the unsupported `numberOfVideos` request field so Gemini Developer API Veo runs do not fail before OpenClaw can complete the intended Google video generation path. (#64723) Thanks @velvet-shark.",
-        "link": null,
-        "category": "api",
-        "categoryLabel": "🔌 API/接口",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "QA/packaging: 停止 packaged CLI startup 和 completion cache generation 从 reading repo-only QA scenario markdown, ship the bundled QA scenario pack 在 npm releases, 和 keep `openclaw completion --write-state` working even if QA setup is broken. (#64648) Thanks @obviyus.",
-        "rawTitle": "QA/packaging: stop packaged CLI startup and completion cache generation from reading repo-only QA scenario markdown, ship the bundled QA scenario pack in npm releases, and keep `openclaw completion --write-state` working even if QA setup is broken. (#64648) Thanks @obviyus.",
-        "link": null,
-        "category": "data",
-        "categoryLabel": "💾 数据/缓存",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "Codex/QA: keep Codex app-server coordination chatter out 的 visible replies, 添加 a live QA leak scenario, 和 classify leaked harness meta text as a QA failure 而不是 a successful reply. Thanks @vincentkoc.",
-        "rawTitle": "Codex/QA: keep Codex app-server coordination chatter out of visible replies, add a live QA leak scenario, and classify leaked harness meta text as a QA failure instead of a successful reply. Thanks @vincentkoc.",
-        "link": null,
-        "category": "models",
-        "categoryLabel": "🤖 模型集成",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      },
-      {
-        "title": "WhatsApp: route `message react` through the 网关-owned action 路径 so reactions use the live WhatsApp listener 在 both DM 和 group chats, matching `message send` 和 `message poll`. Thanks @mcaxtr.",
-        "rawTitle": "WhatsApp: route `message react` through the gateway-owned action path so reactions use the live WhatsApp listener in both DM and group chats, matching `message send` and `message poll`. Thanks @mcaxtr.",
-        "link": null,
-        "category": "channels",
-        "categoryLabel": "💬 消息渠道",
-        "type": {
-          "type": "other",
-          "icon": "📝",
-          "label": "其他"
-        }
-      }
-    ],
-    "changesByCategory": {
-      "data": {
-        "label": "💾 数据/缓存",
-        "items": [
-          {
-            "title": "Dreaming/内存-wiki: 添加 ChatGPT import ingestion plus new `Imported Insights` 和 `内存 Palace` diary subtabs so Dreaming can inspect imported source chats, compiled wiki pages, 和 full source pages directly 从 the 界面. (#64505)",
-            "rawTitle": "Dreaming/memory-wiki: add ChatGPT import ingestion plus new `Imported Insights` and `Memory Palace` diary subtabs so Dreaming can inspect imported source chats, compiled wiki pages, and full source pages directly from the UI. (#64505)",
-            "link": null,
-            "category": "data",
-            "categoryLabel": "💾 数据/缓存",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "QA/packaging: 停止 packaged CLI startup 和 completion cache generation 从 reading repo-only QA scenario markdown, ship the bundled QA scenario pack 在 npm releases, 和 keep `openclaw completion --write-state` working even if QA setup is broken. (#64648) Thanks @obviyus.",
-            "rawTitle": "QA/packaging: stop packaged CLI startup and completion cache generation from reading repo-only QA scenario markdown, ship the bundled QA scenario pack in npm releases, and keep `openclaw completion --write-state` working even if QA setup is broken. (#64648) Thanks @obviyus.",
-            "link": null,
-            "category": "data",
-            "categoryLabel": "💾 数据/缓存",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          }
-        ]
-      },
-      "voice": {
-        "label": "📞 语音通话",
-        "items": [
-          {
-            "title": "Control 界面/webchat: render assistant media/reply/语音 directives as structured chat bubbles, 添加 the `[embed ...]` rich output tag, 和 gate external embed URLs behind 配置. (#64104)",
-            "rawTitle": "Control UI/webchat: render assistant media/reply/voice directives as structured chat bubbles, add the `[embed ...]` rich output tag, and gate external embed URLs behind config. (#64104)",
-            "link": null,
-            "category": "voice",
-            "categoryLabel": "📞 语音通话",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "macOS/Talk Mode: 之后 granting microphone permission 在 first 启用, continue starting Talk Mode 而不是 requiring a second toggle. (#62459) Thanks @ggarber.",
-            "rawTitle": "macOS/Talk Mode: after granting microphone permission on first enable, continue starting Talk Mode instead of requiring a second toggle. (#62459) Thanks @ggarber.",
-            "link": null,
-            "category": "voice",
-            "categoryLabel": "📞 语音通话",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          }
-        ]
-      },
-      "ci": {
-        "label": "🔄 CI/CD",
-        "items": [
-          {
-            "title": "Tools/video_generate: 添加 URL-only generated asset delivery, typed `providerOptions`, reference audio inputs, per-asset role hints, `adaptive` aspect-ratio 支持, 和 a higher image-input cap so video providers can expose richer generation modes 不适用 forcing large files 进入 内存. (#61987, #61988) Thanks @xieyongliang.",
-            "rawTitle": "Tools/video_generate: add URL-only generated asset delivery, typed `providerOptions`, reference audio inputs, per-asset role hints, `adaptive` aspect-ratio support, and a higher image-input cap so video providers can expose richer generation modes without forcing large files into memory. (#61987, #61988) Thanks @xieyongliang.",
-            "link": null,
-            "category": "ci",
-            "categoryLabel": "🔄 CI/CD",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "Microsoft Teams: 添加 reaction 支持, reaction listing, Graph pagination, 和 delegated OAuth认证 setup 为了 sending reactions while preserving application-认证 read paths. (#51646)",
-            "rawTitle": "Microsoft Teams: add reaction support, reaction listing, Graph pagination, and delegated OAuth setup for sending reactions while preserving application-auth read paths. (#51646)",
-            "link": null,
-            "category": "ci",
-            "categoryLabel": "🔄 CI/CD",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "插件: 允许 插件 manifests to declare activation 和 setup descriptors so 插件 setup flows can describe required 认证, pairing, 和 configuration steps 不适用 hardcoded core special cases. (#64780)",
-            "rawTitle": "Plugins: allow plugin manifests to declare activation and setup descriptors so plugin setup flows can describe required auth, pairing, and configuration steps without hardcoded core special cases. (#64780)",
-            "link": null,
-            "category": "ci",
-            "categoryLabel": "🔄 CI/CD",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "Agent/timeouts: honor explicit run timeouts 在 the LLM idle watchdog 和 align default 超时 配置 so slow 模型 can keep working until the configured limit 而不是 using the wrong idle window.",
-            "rawTitle": "Agents/timeouts: honor explicit run timeouts in the LLM idle watchdog and align default timeout config so slow models can keep working until the configured limit instead of using the wrong idle window.",
-            "link": null,
-            "category": "ci",
-            "categoryLabel": "🔄 CI/CD",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          }
-        ]
-      },
-      "channels": {
-        "label": "💬 消息渠道",
-        "items": [
-          {
-            "title": "飞书: 改进 document comment sessions 使用 richer context parsing, comment reactions, 和 typing feedback so document-thread conversations behave more like chat conversations. (#63785)",
-            "rawTitle": "Feishu: improve document comment sessions with richer context parsing, comment reactions, and typing feedback so document-thread conversations behave more like chat conversations. (#63785)",
-            "link": null,
-            "category": "channels",
-            "categoryLabel": "💬 消息渠道",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "Control 界面/webchat: persist Agent-run TTS audio replies 进入 webchat history 和 保留 interleaved 工具 card pairing so generated audio 和 mixed 工具 output stay attached to the right messages. (#63514) Thanks @bittoby.",
-            "rawTitle": "Control UI/webchat: persist agent-run TTS audio replies into webchat history and preserve interleaved tool card pairing so generated audio and mixed tool output stay attached to the right messages. (#63514) Thanks @bittoby.",
-            "link": null,
-            "category": "channels",
-            "categoryLabel": "💬 消息渠道",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "WhatsApp: honor the configured default account 当 the active listener helper is used 不适用 an explicit account id, so named default accounts do not get registered under `default`. (#53918) Thanks @yhyatt.",
-            "rawTitle": "WhatsApp: honor the configured default account when the active listener helper is used without an explicit account id, so named default accounts do not get registered under `default`. (#53918) Thanks @yhyatt.",
-            "link": null,
-            "category": "channels",
-            "categoryLabel": "💬 消息渠道",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "WhatsApp: route `message react` through the 网关-owned action 路径 so reactions use the live WhatsApp listener 在 both DM 和 group chats, matching `message send` 和 `message poll`. Thanks @mcaxtr.",
-            "rawTitle": "WhatsApp: route `message react` through the gateway-owned action path so reactions use the live WhatsApp listener in both DM and group chats, matching `message send` and `message poll`. Thanks @mcaxtr.",
-            "link": null,
-            "category": "channels",
-            "categoryLabel": "💬 消息渠道",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          }
-        ]
-      },
-      "models": {
-        "label": "🤖 模型集成",
-        "items": [
-          {
-            "title": "Ollama: cache `/API/show` context-window 和 capability metadata 期间 模型 discovery so repeated picker refreshes 停止 refetching unchanged 模型, while still retrying 之后 empty responses 和 invalidating 在 digest changes. (#64753) Thanks @ImLukeF.",
-            "rawTitle": "Ollama: cache `/api/show` context-window and capability metadata during model discovery so repeated picker refreshes stop refetching unchanged models, while still retrying after empty responses and invalidating on digest changes. (#64753) Thanks @ImLukeF.",
-            "link": null,
-            "category": "models",
-            "categoryLabel": "🤖 模型集成",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "模型/providers: surface how configured OpenAI-compatible endpoints are classified 在 embedded-Agent debug logs, so local 和 代理 routing issues are easier to diagnose. (#64754) Thanks @ImLukeF.",
-            "rawTitle": "Models/providers: surface how configured OpenAI-compatible endpoints are classified in embedded-agent debug logs, so local and proxy routing issues are easier to diagnose. (#64754) Thanks @ImLukeF.",
-            "link": null,
-            "category": "models",
-            "categoryLabel": "🤖 模型集成",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "OpenAI/Codex OAuth认证: 停止 rewriting the upstream authorize URL scopes so new Codex sign-ins do not fail 使用 `invalid_scope` 之前 returning an authorization code. (#64713) Thanks @fuller-stack-dev.",
-            "rawTitle": "OpenAI/Codex OAuth: stop rewriting the upstream authorize URL scopes so new Codex sign-ins do not fail with `invalid_scope` before returning an authorization code. (#64713) Thanks @fuller-stack-dev.",
-            "link": null,
-            "category": "models",
-            "categoryLabel": "🤖 模型集成",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "Audio transcription: 禁用 pinned DNS only 为了 OpenAI-compatible multipart requests, while still validating hostnames, so OpenAI, Groq, 和 Mistral transcription works 重新 不适用 weakening other request paths. (#64766) Thanks @GodsBoy.",
-            "rawTitle": "Audio transcription: disable pinned DNS only for OpenAI-compatible multipart requests, while still validating hostnames, so OpenAI, Groq, and Mistral transcription works again without weakening other request paths. (#64766) Thanks @GodsBoy.",
-            "link": null,
-            "category": "models",
-            "categoryLabel": "🤖 模型集成",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "Codex/QA: keep Codex app-server coordination chatter out 的 visible replies, 添加 a live QA leak scenario, 和 classify leaked harness meta text as a QA failure 而不是 a successful reply. Thanks @vincentkoc.",
-            "rawTitle": "Codex/QA: keep Codex app-server coordination chatter out of visible replies, add a live QA leak scenario, and classify leaked harness meta text as a QA failure instead of a successful reply. Thanks @vincentkoc.",
-            "link": null,
-            "category": "models",
-            "categoryLabel": "🤖 模型集成",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          }
-        ]
-      },
-      "agents": {
-        "label": "🤖 Agent系统",
-        "items": [
-          {
-            "title": "QA/parity: 添加 the GPT-5.4 vs Opus 4.6 agentic parity report gate 使用 shared scenario coverage checks, stricter evidence heuristics, 和 skipped-scenario accounting 为了 maintainer review. (#64441) Thanks @100yenadmin.",
-            "rawTitle": "QA/parity: add the GPT-5.4 vs Opus 4.6 agentic parity report gate with shared scenario coverage checks, stricter evidence heuristics, and skipped-scenario accounting for maintainer review. (#64441) Thanks @100yenadmin.",
-            "link": null,
-            "category": "agents",
-            "categoryLabel": "🤖 Agent系统",
-            "type": {
-              "type": "other",
-              "icon": "📝",
-              "label": "其他"
-            }
-          },
-          {
-            "title": "ACP/Agent: suppress commentary-phase child assistant relay text 在 ACP parent stream updates, so spawned child runs 停止 leaking internal progress chatter 进入 the parent session. Thanks @vincentkoc.",
-            "rawTitle": "ACP/agents: suppress commentary-phase child assistant relay text in ACP parent stream updates, so spawned child runs stop leaking internal progress chatter into the parent session. Thanks @vincentkoc.",
             "link": null,
             "category": "agents",
             "categoryLabel": "🤖 Agent系统",
